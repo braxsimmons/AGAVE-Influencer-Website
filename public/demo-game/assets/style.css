@@ -1916,3 +1916,6 @@ img.fullscreen-image {
     height: 64%;
     width: 100%;
 }
+
+/* Keep the qualified-prize CTA legible on light prize art (e.g. gift cards) */
+#ptw, #ptw2 { width: auto; max-width: 82%; background-color: rgba(0,0,0,0.42); padding: 0.32em 0.7em; border-radius: 6px; }

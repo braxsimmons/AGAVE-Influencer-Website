@@ -21,8 +21,8 @@ const COL_A = [
 ];
 const COL_B = [
   "/influencers/kelseynixon.jpg",
-  "/demo-game/assets/bg.png",
-  "/demo-game/assets/profile-picture.png",
+  "/influencers/cami.jpeg",
+  "/influencers/russ.jpg",
 ];
 
 function Frame({ src, priority }: { src: string; priority?: boolean }) {

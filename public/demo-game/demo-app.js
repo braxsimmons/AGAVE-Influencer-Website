@@ -109,7 +109,7 @@ angular.module('hitListApp').service('dataService', function () {
     ds.Qualifications = { Item: 0, Show: false };
     ds.BackgroundImage = { URL: ASSET + 'bg.png', ID: 1 };
     ds.PWFormAll = null;
-    ds.L1Prize = prizeDemo('Mystery Prize', 'prize1.png', 1, 11, true);
+    ds.L1Prize = prizeDemo('Lululemon Gift Card', 'lulu.png', 1, 11, true);
     ds.L2Prize = prizeDemo('Amazon Gift Card', 'prize2.png', 2, 12, false);
     ds.L3Prize = prizeDemo('Cruise Getaway', 'prize3.png', 3, 13, false);
     ds.L4Prize = prizeDemo('Resort Vacation', 'prize4.png', 4, 14, false);

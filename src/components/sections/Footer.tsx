@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { InstagramIcon, TikTokIcon, YouTubeIcon, XIcon } from "@/components/Icons";
 
 const COLUMNS = [
   {
@@ -28,13 +27,6 @@ const COLUMNS = [
   },
 ];
 
-const SOCIALS = [
-  { Icon: InstagramIcon, href: "#", label: "Instagram" },
-  { Icon: TikTokIcon, href: "#", label: "TikTok" },
-  { Icon: YouTubeIcon, href: "#", label: "YouTube" },
-  { Icon: XIcon, href: "#", label: "X" },
-];
-
 export function Footer() {
   return (
     <footer className="section-x border-t border-white/[0.07] bg-ink-900 pt-16 pb-10">
@@ -46,18 +38,6 @@ export function Footer() {
               The gamified engagement platform turning audiences into players with
               real games, real prizes, and real reach.
             </p>
-            <div className="mt-6 flex gap-2.5">
-              {SOCIALS.map(({ Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-sand/60 transition-colors hover:border-white/25 hover:text-paper"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {COLUMNS.map((col) => (
@@ -76,9 +56,8 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col gap-2 border-t border-white/[0.06] pt-6 font-mono text-[11px] text-sand/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 border-t border-white/[0.06] pt-6 text-[11px] text-sand/40">
           <p>© {new Date().getFullYear()} AGAVE™. All rights reserved.</p>
-          <p>Skill &amp; participation based. Premium, brand-safe, not gambling.</p>
         </div>
       </div>
     </footer>
