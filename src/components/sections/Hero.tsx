@@ -21,7 +21,7 @@ const COL_A = [
 ];
 const COL_B = [
   "/influencers/kelseynixon.jpg",
-  "/influencers/cami.jpeg",
+  "/influencers/cami.jpg",
   "/influencers/russ.jpg",
 ];
 
