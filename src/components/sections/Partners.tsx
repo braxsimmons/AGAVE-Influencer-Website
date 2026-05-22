@@ -15,22 +15,25 @@ export function Partners() {
             <br className="hidden sm:block" /> agency partner.
           </h2>
 
-          <div className="mt-12 flex justify-center">
+          <div className="mt-12 flex flex-col items-center gap-3">
             <Image
               src="/brand/freddy-light.png"
-              alt="Freddy"
+              alt="Freddy Media"
               width={300}
               height={136}
               className="h-16 w-auto sm:h-20"
               priority
             />
+            <span className="text-sm font-bold uppercase tracking-[0.4em] text-white/80 sm:text-base">
+              Media
+            </span>
           </div>
 
           <p className="mx-auto mt-12 max-w-2xl text-pretty text-lg text-white/70">
-            Agave works hand-in-hand with Freddy, a leading influencer agency, to
-            connect creators with premium brand campaigns and unforgettable prize
-            experiences — so the partnerships you join are backed by people who
-            already know the industry inside out.
+            Agave partners with Freddy Media, a leading influencer agency, to connect
+            creators with premium brand campaigns and real prize experiences — so
+            every partnership you join is backed by a team that knows the industry
+            inside out.
           </p>
         </Reveal>
       </div>
