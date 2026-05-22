@@ -732,23 +732,25 @@
                 }
             }
         </script>
-        <!-- Embed mode: skip login + tutorial, auto-start anonymous play (clicking screen) -->
+        <!-- Embed mode: skip login + tutorial, auto-start anonymous play (clicking screen).
+             Drive Angular directly (no DOM click) so nothing steals focus / scrolls
+             or refreshes the parent page while it loads in the background. -->
         <script>
             (function () {
                 document.documentElement.classList.add('agave-embed');
                 var tries = 0;
                 var iv = setInterval(function () {
                     tries++;
-                    var btns = document.querySelectorAll('button');
-                    for (var i = 0; i < btns.length; i++) {
-                        if (/Play Anonymously/i.test(btns[i].textContent || '')) {
-                            btns[i].click();
+                    try {
+                        var scope = window.angular && angular.element(document.body).scope();
+                        if (scope && scope.Ready >= 1 && typeof scope.submit === 'function') {
+                            scope.$apply(function () { scope.submit('A'); });
                             clearInterval(iv);
                             return;
                         }
-                    }
-                    if (tries > 120) clearInterval(iv);
-                }, 150);
+                    } catch (e) { /* keep trying */ }
+                    if (tries > 160) clearInterval(iv);
+                }, 120);
             })();
         </script>
 </body>
