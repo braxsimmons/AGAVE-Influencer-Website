@@ -1,7 +1,7 @@
-import { Reveal } from "@/components/ui/Reveal";
 import { Kicker } from "@/components/ui/Bits";
 import { Button } from "@/components/ui/Button";
 import { CheckIcon } from "@/components/Icons";
+import { GamePreview } from "@/components/GamePreview";
 
 const POINTS = [
   "Real tap-to-win mechanics, the exact flow your followers get",
@@ -62,21 +62,8 @@ export function DemoSection() {
           </div>
         </div>
 
-        {/* device preview - desktop only (game fills a phone on mobile anyway) */}
-        <Reveal className="hidden justify-center lg:flex lg:justify-end">
-          <div className="relative w-full max-w-[360px]">
-            <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-deep/10 blur-3xl" />
-            <div className="relative aspect-[360/740] overflow-hidden rounded-[2.4rem] border-[7px] border-ink bg-ink shadow-[0_50px_120px_-45px_rgba(18,28,37,0.55)]">
-              <iframe
-                src="/demo-game/embed.html"
-                title="AGAVE game preview"
-                className="h-full w-full border-0"
-                loading="lazy"
-                allow="autoplay; clipboard-write"
-              />
-            </div>
-          </div>
-        </Reveal>
+        {/* device preview - desktop only; loads + auto-logs-in at page load */}
+        <GamePreview />
       </div>
     </section>
   );
