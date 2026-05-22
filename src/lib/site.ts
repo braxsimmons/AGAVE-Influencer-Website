@@ -37,14 +37,12 @@ export const STEPS = [
   },
 ];
 
-/** Ghosted value marquee (echoes goagave.io) */
+/** Ghosted value marquee — on-brand value phrases */
 export const VALUE_WORDS = [
-  "Gift Cards",
-  "Luxury Travel",
-  "Electronics",
-  "Cash Prizes",
-  "Concert Tickets",
-  "Game Consoles",
-  "Spa Retreats",
-  "Brand Deals",
+  "Interactive Experiences",
+  "Real Prizes",
+  "Live Campaigns",
+  "Real Engagement",
+  "Branded Games",
+  "Audience Rewards",
 ];

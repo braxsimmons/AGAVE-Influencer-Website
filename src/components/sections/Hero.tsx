@@ -40,11 +40,10 @@ export function Hero() {
             custom={1}
             initial="hidden"
             animate="show"
-            className="font-display mt-6 text-balance text-5xl font-bold leading-[0.98] text-paper sm:text-7xl lg:text-[5.2rem]"
+            className="font-display mt-6 max-w-4xl text-balance text-5xl font-bold leading-[0.98] text-paper sm:text-7xl lg:text-[4.9rem]"
           >
-            Turn your audience
-            <br />
-            into <span className="text-electric">real prizes.</span>
+            Your audience was never meant to{" "}
+            <span className="text-electric">just watch.</span>
           </motion.h1>
 
           <motion.p
@@ -52,16 +51,26 @@ export function Hero() {
             custom={2}
             initial="hidden"
             animate="show"
-            className="mt-7 max-w-xl text-pretty text-lg text-sand/80 sm:text-xl"
+            className="mt-7 max-w-xl text-pretty text-xl font-medium text-paper/90 sm:text-2xl"
           >
-            Partner with Agave to run branded prize games your audience actually
-            plays — and earn from the engagement you already create. No ad scripts,
-            no gimmicks.
+            Turn followers into players with interactive prize experiences powered
+            by Agave.
+          </motion.p>
+
+          <motion.p
+            variants={fade}
+            custom={3}
+            initial="hidden"
+            animate="show"
+            className="mt-4 max-w-lg text-pretty text-base text-sand/70"
+          >
+            Stop posting ads your audience skips. Build campaigns your audience
+            actually wants to engage with.
           </motion.p>
 
           <motion.div
             variants={fade}
-            custom={3}
+            custom={4}
             initial="hidden"
             animate="show"
             className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
