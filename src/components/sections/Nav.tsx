@@ -29,7 +29,7 @@ export function Nav() {
     <header className="fixed inset-x-0 top-0 z-50">
       <div
         className={`transition-colors duration-300 ${
-          scrolled ? "border-b border-white/[0.07] bg-ink/80 backdrop-blur-xl" : "border-b border-transparent"
+          scrolled ? "border-b border-white/[0.07] bg-ink/90 backdrop-blur-xl" : "border-b border-transparent"
         }`}
       >
         <div className="section-x mx-auto flex max-w-7xl items-center justify-between py-4">

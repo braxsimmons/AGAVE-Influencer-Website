@@ -5,37 +5,43 @@ import { OLD_WAY, AGAVE_WAY } from "@/lib/site";
 
 export function TheShift() {
   return (
-    <section className="section-x py-24 sm:py-32">
+    <section className="section-x bg-cream py-24 text-ink sm:py-32">
       <div className="mx-auto max-w-7xl">
-        <Reveal>
-          <Kicker index="01">The shift</Kicker>
-          <h2 className="mt-7 max-w-4xl font-display text-4xl font-bold leading-[0.95] text-paper sm:text-6xl">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <div className="flex justify-center">
+            <Kicker tone="onLight">The shift</Kicker>
+          </div>
+          <h2 className="mt-6 font-display text-4xl font-bold leading-[0.98] text-ink sm:text-6xl">
             Sponsored posts get scrolled.{" "}
-            <span className="text-electric">Games get played.</span>
+            <span className="text-deep">Games get played.</span>
           </h2>
+          <p className="mx-auto mt-6 max-w-xl text-pretty text-lg text-ink/65">
+            Your audience didn&apos;t follow you to be sold to. Give them something
+            to play — and watch engagement compound instead of fade.
+          </p>
         </Reveal>
 
-        <div className="rule-t mt-14 grid sm:mt-16 md:grid-cols-2">
+        <div className="mt-14 grid gap-5 sm:mt-16 md:grid-cols-2">
           {/* old way */}
-          <Reveal className="py-10 md:pr-12">
-            <p className="kicker text-sand/45">[ The old playbook ]</p>
-            <ul className="mt-7 space-y-5">
+          <Reveal className="rounded-2xl border border-ink/10 bg-white/60 p-8">
+            <p className="kicker text-ink/45">[ The old playbook ]</p>
+            <ul className="mt-7 space-y-4">
               {OLD_WAY.map((item) => (
-                <li key={item} className="flex items-start gap-4 text-lg text-sand/45">
-                  <span className="mt-3 h-px w-5 shrink-0 bg-sand/30" />
-                  <span className="line-through decoration-sand/25">{item}</span>
+                <li key={item} className="flex items-start gap-4 text-[17px] text-ink/45">
+                  <span className="mt-3 h-px w-5 shrink-0 bg-ink/25" />
+                  <span className="line-through decoration-ink/20">{item}</span>
                 </li>
               ))}
             </ul>
           </Reveal>
 
           {/* agave way */}
-          <Reveal delay={0.1} className="border-t border-white/10 py-10 md:border-t-0 md:border-l md:pl-12">
-            <p className="kicker text-electric">[ The Agave play ]</p>
-            <ul className="mt-7 space-y-5">
+          <Reveal delay={0.1} className="rounded-2xl border border-deep/25 bg-white p-8 shadow-[0_30px_70px_-50px_rgba(25,55,89,0.6)]">
+            <p className="kicker text-deep">[ The Agave play ]</p>
+            <ul className="mt-7 space-y-4">
               {AGAVE_WAY.map((item) => (
-                <li key={item} className="flex items-start gap-4 text-lg text-paper">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-electric/15 text-electric">
+                <li key={item} className="flex items-start gap-4 text-[17px] font-medium text-ink">
+                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-deep/12 text-deep">
                     <CheckIcon className="h-3 w-3" />
                   </span>
                   <span>{item}</span>

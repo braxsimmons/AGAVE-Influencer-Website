@@ -15,7 +15,7 @@ export function ApplySection() {
     <section id="apply" className="section-x scroll-mt-24 py-28 sm:py-36">
       <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
         <div className="lg:sticky lg:top-28">
-          <Kicker index="04">Apply</Kicker>
+          <Kicker>Apply to partner</Kicker>
           <h2 className="font-display mt-7 text-balance text-4xl font-bold leading-[0.95] text-paper sm:text-6xl">
             Bring the game to your audience.
           </h2>
