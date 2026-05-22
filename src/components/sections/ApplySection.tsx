@@ -21,7 +21,7 @@ export function ApplySection() {
           </h2>
           <p className="mt-5 max-w-md text-pretty text-lg text-ink/60">
             We partner with a limited number of creators per cycle so every drop stays
-            premium. Tell us where you create — if it&apos;s a fit, we&apos;ll match you
+            premium. Tell us where you create, and if it&apos;s a fit, we&apos;ll match you
             to your first live campaign.
           </p>
 

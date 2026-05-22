@@ -31,7 +31,7 @@ export function Partners() {
 
           <p className="mx-auto mt-12 max-w-2xl text-pretty text-lg text-white/70">
             Agave partners with Freddy Media, a leading influencer agency, to connect
-            creators with premium brand campaigns and real prize experiences — so
+            creators with premium brand campaigns and real prize experiences, so
             every partnership you join is backed by a team that knows the industry
             inside out.
           </p>

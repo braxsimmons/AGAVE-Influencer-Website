@@ -21,7 +21,7 @@ function clean(v: unknown, max = 200): string {
 export async function POST(req: Request) {
   sweepRateLimits();
 
-  // 1) Inbound rate limit (per IP) — blocks spam bursts before we touch GHL.
+  // 1) Inbound rate limit (per IP) - blocks spam bursts before we touch GHL.
   const ip = clientIp(req);
   const rl = rateLimit(`apply:${ip}`, { limit: 5, windowMs: 10 * 60 * 1000 });
   if (!rl.ok) {
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Invalid request." }, { status: 400 });
   }
 
-  // 3) Honeypot — bots fill hidden fields. Pretend success, skip GHL.
+  // 3) Honeypot - bots fill hidden fields. Pretend success, skip GHL.
   if (clean(payload.company)) {
     return NextResponse.json({ ok: true, skipped: true });
   }
@@ -87,7 +87,7 @@ export async function POST(req: Request) {
     }
     if (status === 429) {
       return NextResponse.json(
-        { ok: false, error: "We're processing a lot of applications right now — try again in a moment." },
+        { ok: false, error: "We're processing a lot of applications right now. Try again in a moment." },
         { status: 429, headers: { "Retry-After": "20" } },
       );
     }

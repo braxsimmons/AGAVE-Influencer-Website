@@ -39,30 +39,31 @@ export function Nav() {
             <Logo className="h-5 w-auto text-ink" />
           </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
-            {NAV_LINKS.slice(0, 2).map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="text-sm font-medium text-ink/70 transition-colors hover:text-ink"
-              >
-                {l.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex items-center gap-6 md:gap-7">
+            <nav className="hidden items-center gap-6 md:flex">
+              {NAV_LINKS.slice(0, 2).map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="text-sm font-medium text-ink/70 transition-colors hover:text-ink"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
 
-          <div className="hidden md:block">
-            <Button href="#apply" size="sm">
-              Join the network
-            </Button>
-          </div>
+            <div className="hidden md:block">
+              <Button href="#apply" size="sm">
+                Join the network
+              </Button>
+            </div>
 
-          <button
-            className="flex h-10 w-10 items-center justify-center md:hidden"
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Toggle menu"
-            aria-expanded={open}
-          >
+            <button
+              className="flex h-10 w-10 items-center justify-center md:hidden"
+              onClick={() => setOpen((v) => !v)}
+              aria-label="Toggle menu"
+              aria-expanded={open}
+            >
             <span className="relative block h-3.5 w-5">
               <span
                 className={`absolute left-0 top-0 h-0.5 w-5 rounded bg-ink transition-all duration-300 ${
@@ -75,7 +76,8 @@ export function Nav() {
                 }`}
               />
             </span>
-          </button>
+            </button>
+          </div>
         </div>
       </div>
 

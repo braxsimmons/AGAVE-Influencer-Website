@@ -14,6 +14,48 @@ const up = {
   }),
 };
 
+const COL_A = [
+  "/influencers/influencer-1.jpg",
+  "/influencers/bodybybree.jpg",
+  "/influencers/braiden.jpg",
+];
+const COL_B = [
+  "/influencers/kelseynixon.jpg",
+  "/demo-game/assets/bg.png",
+  "/demo-game/assets/profile-picture.png",
+];
+
+function Frame({ src, priority }: { src: string; priority?: boolean }) {
+  return (
+    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-cream ring-1 ring-ink/10">
+      <Image
+        src={src}
+        alt="AGAVE creator"
+        fill
+        sizes="(max-width: 1024px) 42vw, 20vw"
+        className="object-cover"
+        priority={priority}
+      />
+    </div>
+  );
+}
+
+function Strip({ images, reverse, dur }: { images: string[]; reverse?: boolean; dur: number }) {
+  const loop = [...images, ...images];
+  return (
+    <div className="overflow-hidden">
+      <div
+        className={`vmarquee flex flex-col gap-3 ${reverse ? "reverse" : ""}`}
+        style={{ ["--vdur" as string]: `${dur}s` }}
+      >
+        {loop.map((src, i) => (
+          <Frame key={`${src}-${i}`} src={src} priority={!reverse && i === 0} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function Hero() {
   return (
     <section id="top" className="section-x relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
@@ -43,7 +85,7 @@ export function Hero() {
             className="mt-6 max-w-xl text-pretty text-lg text-ink/65"
           >
             Turn followers into players with interactive prize experiences powered by
-            Agave. Stop posting ads your audience skips — build campaigns they
+            Agave. Stop posting ads your audience skips. Build campaigns they
             actually want to engage with.
           </motion.p>
 
@@ -73,36 +115,22 @@ export function Hero() {
           </motion.p>
         </div>
 
-        {/* collage */}
+        {/* film strip credibility wall */}
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto w-full max-w-md lg:mr-0 lg:max-w-none"
         >
-          <div className="grid grid-cols-12 gap-3">
-            <div className="relative col-span-7 aspect-[3/4] overflow-hidden rounded-3xl ring-1 ring-ink/10">
-              <Image
-                src="/demo-game/assets/bg.png"
-                alt="Creator"
-                fill
-                sizes="(max-width:1024px) 60vw, 30vw"
-                className="object-cover"
-                priority
-              />
-            </div>
-            <div className="col-span-5 flex flex-col gap-3">
-              <div className="relative aspect-square overflow-hidden rounded-2xl bg-cream ring-1 ring-ink/10">
-                <Image src="/demo-game/assets/prize1.png" alt="Prize" fill sizes="25vw" className="object-cover" />
-              </div>
-              <div className="relative flex-1 overflow-hidden rounded-2xl ring-1 ring-ink/10">
-                <Image src="/demo-game/assets/profile-picture.png" alt="Creator" fill sizes="25vw" className="object-cover" />
-              </div>
+          <div className="grid h-[440px] grid-cols-2 gap-3 [mask-image:linear-gradient(to_bottom,transparent,#000_9%,#000_91%,transparent)] sm:h-[520px]">
+            <Strip images={COL_A} dur={34} />
+            <div className="-mt-10">
+              <Strip images={COL_B} reverse dur={42} />
             </div>
           </div>
 
           {/* floating stat chip */}
-          <div className="absolute -bottom-5 -left-3 flex items-center gap-3 rounded-2xl bg-white px-5 py-3.5 shadow-[0_20px_50px_-20px_rgba(18,28,37,0.45)] ring-1 ring-ink/5 sm:-left-6">
+          <div className="absolute -bottom-4 -left-3 z-10 flex items-center gap-3 rounded-2xl bg-white px-5 py-3.5 shadow-[0_20px_50px_-20px_rgba(18,28,37,0.5)] ring-1 ring-ink/5 sm:-left-6">
             <span className="font-display text-2xl font-bold text-deep">4.7×</span>
             <span className="text-xs leading-tight text-ink/60">
               more engagement

@@ -144,7 +144,7 @@ export async function ensureCustomFields(): Promise<Record<string, string>> {
     try {
       existing = await listCustomFields();
     } catch {
-      // no read scope — we'll just try to create, and fall back to a note if needed
+      // no read scope - we'll just try to create, and fall back to a note if needed
     }
 
     const byName = new Map(existing.map((f) => [norm(f.name), f]));

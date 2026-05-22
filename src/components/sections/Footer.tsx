@@ -43,8 +43,8 @@ export function Footer() {
           <div className="max-w-xs">
             <Logo className="h-6 w-auto text-paper" />
             <p className="mt-5 text-sm leading-relaxed text-sand/55">
-              The gamified engagement platform turning audiences into players — real
-              games, real prizes, real reach.
+              The gamified engagement platform turning audiences into players with
+              real games, real prizes, and real reach.
             </p>
             <div className="mt-6 flex gap-2.5">
               {SOCIALS.map(({ Icon, href, label }) => (
@@ -78,7 +78,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-2 border-t border-white/[0.06] pt-6 font-mono text-[11px] text-sand/40 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} AGAVE™. All rights reserved.</p>
-          <p>Skill &amp; participation based. Premium, brand-safe — not gambling.</p>
+          <p>Skill &amp; participation based. Premium, brand-safe, not gambling.</p>
         </div>
       </div>
     </footer>

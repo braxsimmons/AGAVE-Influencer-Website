@@ -18,12 +18,12 @@ export const PLATFORMS: Platform[] = [
   { key: "youtube", label: "YouTube", placeholder: "youtube.com/@you" },
 ];
 
-/** Three steps — the influencer journey */
+/** Three steps - the influencer journey */
 export const STEPS = [
   {
     no: "01",
     title: "Apply to partner",
-    body: "Tell us where you create. Approved partners unlock a branded prize game and a personal share link — no production, no ad scripts.",
+    body: "Tell us where you create. Approved partners unlock a branded prize game and a personal share link, with no production and no ad scripts.",
   },
   {
     no: "02",
@@ -37,7 +37,7 @@ export const STEPS = [
   },
 ];
 
-/** The shift — old way vs the Agave play */
+/** The shift - old way vs the Agave play */
 export const OLD_WAY = [
   "Ads your audience scrolls right past",
   "Reach that quietly keeps dropping",

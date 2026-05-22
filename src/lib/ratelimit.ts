@@ -5,7 +5,7 @@
  * is intentional and sufficient here: the inbound limiter blocks obvious spam
  * bursts, while the real protection against GHL's API limits is the outbound
  * spacing + exponential backoff in `lib/ghl.ts`. For multi-region global limits
- * you'd swap the Map for Vercel KV / Upstash — the interface stays the same.
+ * you'd swap the Map for Vercel KV / Upstash - the interface stays the same.
  */
 
 type Hit = { count: number; resetAt: number };

@@ -81,7 +81,7 @@ export function ApplyForm() {
           You&apos;re on the list.
         </h3>
         <p className="mx-auto mt-4 max-w-md text-pretty text-ink/60">
-          Your application is in. We review creators weekly — keep an eye on your
+          Your application is in. We review creators weekly, so keep an eye on your
           inbox for an invite to the next live drop.
         </p>
       </motion.div>

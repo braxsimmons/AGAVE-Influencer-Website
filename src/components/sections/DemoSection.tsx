@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/Button";
 import { CheckIcon } from "@/components/Icons";
 
 const POINTS = [
-  "Real tap-to-win mechanics — the exact flow your followers get",
+  "Real tap-to-win mechanics, the exact flow your followers get",
   "Live winning numbers and a tiered prize vault",
-  "Skill & participation based — premium, brand-safe, no gambling",
+  "Skill & participation based: premium, brand-safe, no gambling",
 ];
 
 export function DemoSection() {
@@ -21,7 +21,7 @@ export function DemoSection() {
             <span className="text-ember">Play it.</span>
           </h2>
           <p className="mt-6 max-w-md text-pretty text-lg text-ink/60">
-            This is the real Agave game. Tap to play, chase the winning number — then
+            This is the real Agave game. Tap to play, chase the winning number, then
             picture your followers doing it with your branded version.
           </p>
 
@@ -49,7 +49,7 @@ export function DemoSection() {
             >
               Open full demo ↗
             </a>
-            {/* mobile: no preview — button straight to the demo */}
+            {/* mobile: no preview - button straight to the demo */}
             <Button
               href="/demo-game/index.html"
               target="_blank"
@@ -62,7 +62,7 @@ export function DemoSection() {
           </div>
         </div>
 
-        {/* device preview — desktop only (game fills a phone on mobile anyway) */}
+        {/* device preview - desktop only (game fills a phone on mobile anyway) */}
         <Reveal className="hidden justify-center lg:flex lg:justify-end">
           <div className="relative w-full max-w-[360px]">
             <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-deep/10 blur-3xl" />

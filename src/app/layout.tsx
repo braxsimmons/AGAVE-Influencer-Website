@@ -29,11 +29,11 @@ const SITE_URL = "https://agaveinfluencer.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "AGAVE — Turn Your Audience Into Real Prizes",
+    default: "AGAVE | Turn Your Audience Into Real Prizes",
     template: "%s · AGAVE",
   },
   description:
-    "Partner with AGAVE to run branded prize games your audience actually plays — and earn from the engagement you already create. Apply to partner.",
+    "Partner with AGAVE to run branded prize games your audience actually plays, and earn from the engagement you already create. Join the network.",
   keywords: [
     "AGAVE",
     "influencer network",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "AGAVE" }],
   openGraph: {
-    title: "AGAVE — Turn Your Audience Into Real Prizes",
+    title: "AGAVE | Turn Your Audience Into Real Prizes",
     description:
       "Partner with AGAVE to run branded prize games your audience actually plays. Apply to partner.",
     url: SITE_URL,
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AGAVE — Turn Your Audience Into Real Prizes",
+    title: "AGAVE | Turn Your Audience Into Real Prizes",
     description:
       "Partner with AGAVE to run branded prize games your audience actually plays. Apply to partner.",
   },

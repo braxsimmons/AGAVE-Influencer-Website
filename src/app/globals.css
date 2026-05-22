@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================================
-   AGAVE — Creator/Influencer site
+   AGAVE - Creator/Influencer site
    Light, clean, professional. White + warm cream, dark ink type,
    navy + ember accents. Proxima Nova throughout.
    ============================================================ */
@@ -20,7 +20,7 @@
   --color-ember-600: #d85f3b;
   --color-sand: #d5cbc0;       /* muted on dark */
 
-  /* Fonts — Proxima Nova (Adobe Typekit) primary; next/font Google as fallback */
+  /* Fonts - Proxima Nova (Adobe Typekit) primary; next/font Google as fallback */
   --font-display: "proxima-nova", var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "proxima-nova", var(--font-hanken), "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
 
@@ -81,6 +81,13 @@ h1, h2, h3, .display {
 
 /* ---------- Layout ---------- */
 .section-x { padding-inline: clamp(1.25rem, 6vw, 7rem); }
+
+/* Vertical film-strip marquee (hero credibility wall) */
+.vmarquee { animation: vmarquee var(--vdur, 38s) linear infinite; }
+.vmarquee.reverse { animation-direction: reverse; }
+@keyframes vmarquee {
+  to { transform: translateY(-50%); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

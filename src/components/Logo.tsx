@@ -4,7 +4,7 @@ type LogoProps = {
 };
 
 /**
- * AGAVE wordmark — rebuilt from the brand SVG with `currentColor`
+ * AGAVE wordmark - rebuilt from the brand SVG with `currentColor`
  * so it can be tinted (white on dark, ink on cream, etc.).
  */
 export function Logo({ className, title = "AGAVE" }: LogoProps) {

@@ -13,11 +13,11 @@ export function TheShift() {
           </div>
           <h2 className="mt-6 font-display text-4xl font-bold leading-[1.02] text-ink sm:text-6xl">
             Sponsored posts get scrolled.{" "}
-            <span className="text-deep">Games get played.</span>
+            <span className="text-electric">Games get played.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-pretty text-lg text-ink/60">
             Your audience didn&apos;t follow you to be sold to. Give them something
-            to play — and watch engagement compound instead of fade.
+            to play, and watch engagement compound instead of fade.
           </p>
         </Reveal>
 
