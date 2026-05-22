@@ -23,6 +23,7 @@
   /* Fonts — Proxima Nova (Adobe Typekit) primary; next/font Google as fallback */
   --font-display: "proxima-nova", var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "proxima-nova", var(--font-hanken), "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-src), ui-monospace, "SFMono-Regular", monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -67,14 +68,29 @@ body {
 
 /* ---------- Type ---------- */
 .font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
 .text-balance { text-wrap: balance; }
 .text-pretty { text-wrap: pretty; }
 
 h1, h2, h3, .display {
   font-family: var(--font-display);
-  letter-spacing: -0.03em;
-  line-height: 0.98;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
 }
+
+/* Editorial meta label */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Ruled grid lines (editorial structure) */
+.rule-t { border-top: 1px solid color-mix(in oklab, #fff 11%, transparent); }
+.rule-b { border-bottom: 1px solid color-mix(in oklab, #fff 11%, transparent); }
+.rule-l { border-left: 1px solid color-mix(in oklab, #fff 11%, transparent); }
 
 /* ---------- Surfaces ---------- */
 .glass {

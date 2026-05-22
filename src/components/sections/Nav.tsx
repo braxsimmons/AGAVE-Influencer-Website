@@ -42,7 +42,7 @@ export function Nav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm text-sand/80 transition-colors hover:text-paper"
+                className="font-mono text-xs uppercase tracking-wider text-sand/70 transition-colors hover:text-paper"
               >
                 {l.label}
               </Link>

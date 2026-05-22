@@ -131,7 +131,7 @@ export function ApplyForm() {
 
       <div className="my-7 flex items-center gap-4">
         <span className="h-px flex-1 bg-white/10" />
-        <span className="text-xs font-medium uppercase tracking-[0.2em] text-sand/45">
+        <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-sand/45">
           Where you create
         </span>
         <span className="h-px flex-1 bg-white/10" />

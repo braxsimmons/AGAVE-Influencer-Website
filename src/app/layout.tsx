@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -13,6 +13,14 @@ const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-hanken",
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+// Mono for editorial meta-labels / index numbers
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-src",
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -66,7 +74,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${hanken.variable}`}>
+    <html lang="en" className={`${bricolage.variable} ${hanken.variable} ${mono.variable}`}>
       <body className="bg-ink text-cream antialiased">
         {/* Proxima Nova via Adobe Fonts (Typekit). React 19 hoists this into <head>. */}
         <link rel="preconnect" href="https://use.typekit.net" crossOrigin="" />

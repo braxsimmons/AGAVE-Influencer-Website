@@ -18,7 +18,7 @@ export function Footer() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm text-sand/70 transition-colors hover:text-paper"
+              className="font-mono text-xs uppercase tracking-wider text-sand/70 transition-colors hover:text-paper"
             >
               {l.label}
             </Link>
@@ -26,7 +26,7 @@ export function Footer() {
         </nav>
       </div>
 
-      <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-2 border-t border-white/[0.06] pt-6 text-xs text-sand/40 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-2 border-t border-white/[0.06] pt-6 font-mono text-[11px] text-sand/40 sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} AGAVE™. All rights reserved.</p>
         <p>Skill &amp; participation based. Premium, brand-safe — not gambling.</p>
       </div>

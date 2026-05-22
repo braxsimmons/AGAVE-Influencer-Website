@@ -1,20 +1,26 @@
 import type { ReactNode } from "react";
 
-export function Eyebrow({
+/**
+ * Editorial kicker — mono meta-label with an optional index number and a short
+ * rule. Replaces the goagave-style dot eyebrow.
+ */
+export function Kicker({
   children,
+  index,
   className = "",
-  tone = "electric",
+  tone = "default",
 }: {
   children: ReactNode;
+  index?: string;
   className?: string;
-  tone?: "electric" | "sand";
+  tone?: "default" | "onLight";
 }) {
-  const dot = tone === "sand" ? "bg-sand" : "bg-electric";
+  const text = tone === "onLight" ? "text-ink/55" : "text-sand/65";
+  const line = tone === "onLight" ? "bg-ink/25" : "bg-white/25";
   return (
-    <span
-      className={`inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.3em] text-sand/70 ${className}`}
-    >
-      <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
+    <span className={`kicker inline-flex items-center gap-3 ${text} ${className}`}>
+      {index && <span className="text-electric">{index}</span>}
+      <span className={`h-px w-7 ${line}`} />
       {children}
     </span>
   );

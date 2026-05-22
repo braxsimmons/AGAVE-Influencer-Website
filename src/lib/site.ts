@@ -37,12 +37,17 @@ export const STEPS = [
   },
 ];
 
-/** Ghosted value marquee — on-brand value phrases */
-export const VALUE_WORDS = [
-  "Interactive Experiences",
-  "Real Prizes",
-  "Live Campaigns",
-  "Real Engagement",
-  "Branded Games",
-  "Audience Rewards",
+/** The shift — old way vs the Agave play */
+export const OLD_WAY = [
+  "Ads your audience scrolls right past",
+  "Reach that quietly keeps dropping",
+  "One-and-done posts, then silence",
+  "You chasing brands for the next deal",
+];
+
+export const AGAVE_WAY = [
+  "Games your audience chooses to play",
+  "Reach that compounds as they share",
+  "Campaigns they come back and replay",
+  "Brands coming to find you instead",
 ];

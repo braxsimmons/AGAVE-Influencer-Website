@@ -1,6 +1,6 @@
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
-import { ValueMarquee } from "@/components/sections/ValueMarquee";
+import { TheShift } from "@/components/sections/TheShift";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { DemoSection } from "@/components/sections/DemoSection";
 import { ApplySection } from "@/components/sections/ApplySection";
@@ -12,7 +12,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <ValueMarquee />
+        <TheShift />
         <HowItWorks />
         <DemoSection />
         <ApplySection />

@@ -2,87 +2,124 @@
 
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/Button";
-import { Eyebrow } from "@/components/ui/Bits";
 
-const fade = {
-  hidden: { opacity: 0, y: 18 },
+const line = {
+  hidden: { opacity: 0, y: 24 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: 0.08 * i, ease: [0.16, 1, 0.3, 1] as const },
+    transition: { duration: 0.7, delay: 0.06 * i, ease: [0.16, 1, 0.3, 1] as const },
   }),
 };
 
+const STATS = [
+  { figure: "12.4M", label: "Audience reached" },
+  { figure: "38K", label: "Prizes claimed" },
+  { figure: "4.7×", label: "Engagement lift" },
+];
+
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="relative flex min-h-[92svh] items-center overflow-hidden px-0 pt-28 pb-20"
-    >
-      {/* subtle ambient light — restrained, no loud glows */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "radial-gradient(60% 50% at 70% 0%, rgba(157,197,222,0.10), transparent 60%), radial-gradient(40% 40% at 0% 100%, rgba(25,55,89,0.35), transparent 70%)",
-        }}
-      />
+    <section id="top" className="section-x relative overflow-hidden pt-24 pb-16 sm:pt-28">
+      <div className="mx-auto max-w-7xl">
+        {/* masthead */}
+        <motion.div
+          variants={line}
+          custom={0}
+          initial="hidden"
+          animate="show"
+          className="rule-t rule-b flex items-center justify-between gap-4 py-3"
+        >
+          <span className="kicker text-sand/60">AGAVE — Partner Program</span>
+          <span className="kicker hidden text-sand/40 sm:block">
+            For creators &amp; influencers
+          </span>
+          <span className="kicker text-electric">(2025)</span>
+        </motion.div>
 
-      <div className="section-x mx-auto w-full max-w-7xl">
-        <div className="max-w-3xl">
-          <motion.div variants={fade} custom={0} initial="hidden" animate="show">
-            <Eyebrow>For creators &amp; influencers</Eyebrow>
-          </motion.div>
-
-          <motion.h1
-            variants={fade}
+        {/* giant mixed-scale headline */}
+        <h1 className="mt-12 font-display font-bold tracking-tight text-paper sm:mt-16">
+          <motion.span
+            variants={line}
             custom={1}
             initial="hidden"
             animate="show"
-            className="font-display mt-6 max-w-4xl text-balance text-5xl font-bold leading-[0.98] text-paper sm:text-7xl lg:text-[4.9rem]"
+            className="block text-[15vw] leading-[0.86] sm:text-7xl lg:text-8xl"
           >
-            Your audience was never meant to{" "}
-            <span className="text-electric">just watch.</span>
-          </motion.h1>
-
-          <motion.p
-            variants={fade}
+            Your audience
+          </motion.span>
+          <motion.span
+            variants={line}
             custom={2}
             initial="hidden"
             animate="show"
-            className="mt-7 max-w-xl text-pretty text-xl font-medium text-paper/90 sm:text-2xl"
+            className="mt-1 block font-normal leading-[0.95] text-sand/75 text-[9vw] sm:text-4xl lg:text-[3.4rem]"
           >
-            Turn followers into players with interactive prize experiences powered
-            by Agave.
-          </motion.p>
-
-          <motion.p
-            variants={fade}
+            was never meant to
+          </motion.span>
+          <motion.span
+            variants={line}
             custom={3}
             initial="hidden"
             animate="show"
-            className="mt-4 max-w-lg text-pretty text-base text-sand/70"
+            className="block text-electric text-[19vw] leading-[0.84] sm:text-8xl lg:text-[9rem]"
           >
-            Stop posting ads your audience skips. Build campaigns your audience
-            actually wants to engage with.
-          </motion.p>
+            just watch.
+          </motion.span>
+        </h1>
 
+        {/* asymmetric subrow */}
+        <div className="rule-t mt-12 grid gap-8 pt-8 sm:mt-16 lg:grid-cols-12">
           <motion.div
-            variants={fade}
+            variants={line}
             custom={4}
             initial="hidden"
             animate="show"
-            className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
+            className="lg:col-span-7"
           >
-            <Button href="#apply" size="lg" withArrow>
+            <p className="max-w-xl text-pretty text-xl font-medium text-paper/90 sm:text-2xl">
+              Turn followers into players with interactive prize experiences powered
+              by Agave.
+            </p>
+            <p className="mt-4 max-w-lg text-pretty text-base text-sand/65">
+              Stop posting ads your audience skips. Build campaigns your audience
+              actually wants to engage with.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={line}
+            custom={5}
+            initial="hidden"
+            animate="show"
+            className="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:flex-col lg:items-end lg:justify-start"
+          >
+            <Button href="#apply" size="lg" withArrow className="w-full sm:w-auto">
               Apply to partner
             </Button>
-            <Button href="#demo" variant="secondary" size="lg">
+            <Button href="#demo" variant="secondary" size="lg" className="w-full sm:w-auto">
               Play the demo
             </Button>
           </motion.div>
         </div>
+
+        {/* ruled stat strip */}
+        <motion.div
+          variants={line}
+          custom={6}
+          initial="hidden"
+          animate="show"
+          className="rule-t mt-14 grid grid-cols-3"
+        >
+          {STATS.map((s, i) => (
+            <div key={s.label} className={`py-7 ${i > 0 ? "rule-l pl-5 sm:pl-8" : "pr-5"}`}>
+              <div className="font-display text-3xl font-bold text-paper sm:text-5xl">
+                {s.figure}
+              </div>
+              <div className="kicker mt-2 text-sand/55">{s.label}</div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
