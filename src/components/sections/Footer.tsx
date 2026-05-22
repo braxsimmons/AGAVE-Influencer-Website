@@ -14,7 +14,7 @@ const COLUMNS = [
   {
     title: "Creators",
     links: [
-      { label: "Apply to partner", href: "#apply" },
+      { label: "Join the network", href: "#apply" },
       { label: "Play the demo", href: "/demo-game/index.html" },
     ],
   },

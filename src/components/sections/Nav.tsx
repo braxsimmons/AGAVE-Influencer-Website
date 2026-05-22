@@ -29,12 +29,14 @@ export function Nav() {
     <header className="fixed inset-x-0 top-0 z-50">
       <div
         className={`transition-colors duration-300 ${
-          scrolled ? "border-b border-white/[0.07] bg-ink/90 backdrop-blur-xl" : "border-b border-transparent"
+          scrolled
+            ? "border-b border-ink/10 bg-paper/85 backdrop-blur-xl"
+            : "border-b border-transparent"
         }`}
       >
         <div className="section-x mx-auto flex max-w-7xl items-center justify-between py-4">
           <Link href="#top" className="flex items-center" aria-label="AGAVE home">
-            <Logo className="h-5 w-auto text-paper" />
+            <Logo className="h-5 w-auto text-ink" />
           </Link>
 
           <nav className="hidden items-center gap-8 md:flex">
@@ -42,7 +44,7 @@ export function Nav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="font-mono text-xs uppercase tracking-wider text-sand/70 transition-colors hover:text-paper"
+                className="text-sm font-medium text-ink/70 transition-colors hover:text-ink"
               >
                 {l.label}
               </Link>
@@ -51,7 +53,7 @@ export function Nav() {
 
           <div className="hidden md:block">
             <Button href="#apply" size="sm">
-              Apply to partner
+              Join the network
             </Button>
           </div>
 
@@ -63,12 +65,12 @@ export function Nav() {
           >
             <span className="relative block h-3.5 w-5">
               <span
-                className={`absolute left-0 top-0 h-0.5 w-5 rounded bg-paper transition-all duration-300 ${
+                className={`absolute left-0 top-0 h-0.5 w-5 rounded bg-ink transition-all duration-300 ${
                   open ? "top-1.5 rotate-45" : ""
                 }`}
               />
               <span
-                className={`absolute bottom-0 left-0 h-0.5 w-5 rounded bg-paper transition-all duration-300 ${
+                className={`absolute bottom-0 left-0 h-0.5 w-5 rounded bg-ink transition-all duration-300 ${
                   open ? "bottom-1.5 -rotate-45" : ""
                 }`}
               />
@@ -83,7 +85,7 @@ export function Nav() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-ink/97 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-40 bg-paper md:hidden"
           >
             <div className="flex h-full flex-col justify-center gap-3 px-8">
               {NAV_LINKS.map((l, i) => (
@@ -96,12 +98,17 @@ export function Nav() {
                   <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="font-display block py-2.5 text-4xl font-bold text-paper"
+                    className="font-display block py-2.5 text-4xl font-bold text-ink"
                   >
                     {l.label}
                   </Link>
                 </motion.div>
               ))}
+              <div className="mt-6">
+                <Button href="#apply" size="lg" className="w-full">
+                  Join the network
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}

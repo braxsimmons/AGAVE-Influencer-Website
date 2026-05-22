@@ -2,11 +2,11 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowIcon } from "@/components/Icons";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "secondary-dark" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "group inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric/70 focus-visible:ring-offset-2 focus-visible:ring-offset-ink disabled:opacity-50 disabled:pointer-events-none";
+  "group inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember/50 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
 
 const sizes: Record<Size, string> = {
   sm: "px-5 py-2.5 text-sm",
@@ -14,11 +14,14 @@ const sizes: Record<Size, string> = {
   lg: "px-7 py-3.5 text-base",
 };
 
+// Default variants target LIGHT backgrounds. Use the *-dark variants on dark bands.
 const variants: Record<Variant, string> = {
-  primary: "bg-ember text-white hover:bg-ember/90 hover:-translate-y-px",
+  primary: "bg-ember text-white shadow-sm hover:bg-ember-600 hover:-translate-y-px",
   secondary:
-    "border border-white/15 bg-white/0 text-paper hover:bg-white/[0.06] hover:border-white/25",
-  ghost: "text-sand/80 hover:text-paper",
+    "border border-ink/15 bg-transparent text-ink hover:bg-ink/[0.04] hover:border-ink/30",
+  "secondary-dark":
+    "border border-white/20 bg-transparent text-white hover:bg-white/[0.08] hover:border-white/35",
+  ghost: "text-ink/70 hover:text-ink",
 };
 
 type CommonProps = {

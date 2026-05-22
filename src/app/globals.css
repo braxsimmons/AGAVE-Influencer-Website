@@ -2,43 +2,39 @@
 
 /* ============================================================
    AGAVE — Creator/Influencer site
-   Restrained, premium, professional. Modeled on goagave.io:
-   warm charcoal base · white type · electric-blue accent ·
-   orange reserved for primary actions · generous space.
+   Light, clean, professional. White + warm cream, dark ink type,
+   navy + ember accents. Proxima Nova throughout.
    ============================================================ */
 
 @theme {
   /* Palette */
-  --color-ink: #1a1918;        /* warm charcoal — primary background */
-  --color-ink-900: #121110;    /* deeper */
-  --color-panel: #121c25;      /* blue-black alt sections */
-  --color-deep: #193759;       /* blue band / cards */
-  --color-deep-700: #15304c;
-  --color-electric: #9dc5de;   /* the one accent */
-  --color-ember: #e9714c;      /* primary CTA only */
-  --color-sand: #d5cbc0;       /* muted text */
-  --color-cream: #f0ede9;
-  --color-paper: #f4f2ef;      /* near-white foreground */
+  --color-paper: #ffffff;      /* primary background */
+  --color-cream: #f4f1ec;      /* warm alternating sections */
+  --color-mist: #eef1f3;       /* cool light tint */
+  --color-ink: #121c25;        /* primary text + dark bands */
+  --color-ink-900: #0c141b;    /* darkest (footer) */
+  --color-deep: #193759;       /* navy accent / bands */
+  --color-deep-600: #1f4670;
+  --color-electric: #9dc5de;   /* accent on dark surfaces */
+  --color-ember: #e9714c;      /* primary CTA */
+  --color-ember-600: #d85f3b;
+  --color-sand: #d5cbc0;       /* muted on dark */
 
   /* Fonts — Proxima Nova (Adobe Typekit) primary; next/font Google as fallback */
   --font-display: "proxima-nova", var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "proxima-nova", var(--font-hanken), "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-mono-src), ui-monospace, "SFMono-Regular", monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
   --animate-float: float 9s ease-in-out infinite;
-
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-14px); }
+    50% { transform: translateY(-12px); }
   }
 }
 
 /* ---------- Base ---------- */
-:root {
-  color-scheme: dark;
-}
+:root { color-scheme: light; }
 
 html {
   scroll-behavior: smooth;
@@ -47,83 +43,44 @@ html {
 }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
 
-::selection {
-  background: var(--color-electric);
-  color: var(--color-ink);
-}
+::selection { background: var(--color-ember); color: #fff; }
 
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--color-ink-900); }
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
 ::-webkit-scrollbar-thumb {
   background: var(--color-deep);
   border-radius: 99px;
-  border: 2px solid var(--color-ink-900);
+  border: 3px solid var(--color-cream);
 }
 
 /* ---------- Type ---------- */
 .font-display { font-family: var(--font-display); }
-.font-mono { font-family: var(--font-mono); }
 .text-balance { text-wrap: balance; }
 .text-pretty { text-wrap: pretty; }
 
 h1, h2, h3, .display {
   font-family: var(--font-display);
-  letter-spacing: -0.035em;
-  line-height: 0.92;
+  letter-spacing: -0.025em;
+  line-height: 1;
 }
 
-/* Editorial meta label */
+/* Clean uppercase label (replaces the editorial mono kicker) */
 .kicker {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-/* Ruled grid lines (editorial structure) */
-.rule-t { border-top: 1px solid color-mix(in oklab, #fff 11%, transparent); }
-.rule-b { border-bottom: 1px solid color-mix(in oklab, #fff 11%, transparent); }
-.rule-l { border-left: 1px solid color-mix(in oklab, #fff 11%, transparent); }
-
-/* ---------- Surfaces ---------- */
-.glass {
-  background: color-mix(in oklab, #fff 5%, transparent);
-  backdrop-filter: blur(16px) saturate(1.15);
-  -webkit-backdrop-filter: blur(16px) saturate(1.15);
-  border: 1px solid color-mix(in oklab, #fff 9%, transparent);
-}
-
-.card {
-  background: color-mix(in oklab, #fff 3.5%, transparent);
-  border: 1px solid color-mix(in oklab, #fff 8%, transparent);
-}
-
-.hairline { border-color: color-mix(in oklab, #fff 9%, transparent); }
-
-/* ---------- Marquee ---------- */
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee var(--marquee-duration, 48s) linear infinite;
-}
-.marquee-group:hover .marquee-track { animation-play-state: paused; }
-@keyframes marquee {
-  to { transform: translateX(-50%); }
-}
-.mask-fade-x {
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-}
-
 /* ---------- Layout ---------- */
-.section-x { padding-inline: clamp(1.25rem, 6vw, 8rem); }
+.section-x { padding-inline: clamp(1.25rem, 6vw, 7rem); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

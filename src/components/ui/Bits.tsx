@@ -1,26 +1,22 @@
 import type { ReactNode } from "react";
 
 /**
- * Editorial kicker — mono meta-label with an optional index number and a short
- * rule. Replaces the goagave-style dot eyebrow.
+ * Clean uppercase section label. `tone` adapts to light vs dark backgrounds.
  */
 export function Kicker({
   children,
-  index,
   className = "",
-  tone = "default",
+  tone = "light",
 }: {
   children: ReactNode;
-  index?: string;
   className?: string;
-  tone?: "default" | "onLight";
+  tone?: "light" | "dark";
 }) {
-  const text = tone === "onLight" ? "text-ink/55" : "text-sand/65";
-  const line = tone === "onLight" ? "bg-ink/25" : "bg-white/25";
+  const color = tone === "dark" ? "text-electric" : "text-deep";
+  const dot = tone === "dark" ? "bg-electric" : "bg-ember";
   return (
-    <span className={`kicker inline-flex items-center gap-3 ${text} ${className}`}>
-      {index && <span className="text-electric">{index}</span>}
-      <span className={`h-px w-7 ${line}`} />
+    <span className={`kicker inline-flex items-center gap-2.5 ${color} ${className}`}>
+      <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
       {children}
     </span>
   );

@@ -9,10 +9,12 @@ type Status = "idle" | "submitting" | "success" | "error";
 type Errors = Record<string, string>;
 
 const FIELD =
-  "w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 text-paper placeholder:text-sand/40 outline-none transition-all duration-200 focus:border-electric/50 focus:bg-white/[0.05] focus:ring-2 focus:ring-electric/20";
+  "w-full rounded-xl border border-ink/15 bg-cream/60 px-4 py-3.5 text-ink placeholder:text-ink/35 outline-none transition-all duration-200 focus:border-deep/50 focus:bg-white focus:ring-2 focus:ring-deep/15";
 
-const LABEL = "mb-2 block text-sm font-medium text-paper/85";
-const ERR = "mt-1.5 text-sm text-ember";
+const LABEL = "mb-2 block text-sm font-medium text-ink/70";
+const ERR = "mt-1.5 text-sm text-ember-600";
+const CARD =
+  "rounded-3xl border border-ink/10 bg-white p-6 shadow-[0_30px_80px_-60px_rgba(18,28,37,0.5)] sm:p-9";
 
 export function ApplyForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -70,16 +72,16 @@ export function ApplyForm() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="card rounded-2xl p-10 text-center sm:p-14"
+        className={`${CARD} text-center sm:p-14`}
       >
-        <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-electric/15 text-electric">
+        <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-deep/12 text-deep">
           <CheckIcon className="h-7 w-7" />
         </div>
-        <h3 className="font-display text-3xl font-bold text-paper">
+        <h3 className="font-display text-3xl font-bold text-ink">
           You&apos;re on the list.
         </h3>
-        <p className="mx-auto mt-4 max-w-md text-pretty text-sand/75">
-          Your application is in. We review partners weekly — keep an eye on your
+        <p className="mx-auto mt-4 max-w-md text-pretty text-ink/60">
+          Your application is in. We review creators weekly — keep an eye on your
           inbox for an invite to the next live drop.
         </p>
       </motion.div>
@@ -87,7 +89,7 @@ export function ApplyForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="card rounded-2xl p-6 sm:p-9">
+    <form onSubmit={handleSubmit} noValidate className={`relative ${CARD}`}>
       {/* honeypot */}
       <div className="absolute -left-[9999px]" aria-hidden>
         <label>
@@ -123,18 +125,16 @@ export function ApplyForm() {
 
         <div className="sm:col-span-2">
           <label className={LABEL} htmlFor="website">
-            Website <span className="text-sand/45">(optional)</span>
+            Website <span className="text-ink/40">(optional)</span>
           </label>
           <input id="website" name="website" className={FIELD} placeholder="https://yoursite.com" autoComplete="url" />
         </div>
       </div>
 
       <div className="my-7 flex items-center gap-4">
-        <span className="h-px flex-1 bg-white/10" />
-        <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-sand/45">
-          Where you create
-        </span>
-        <span className="h-px flex-1 bg-white/10" />
+        <span className="h-px flex-1 bg-ink/10" />
+        <span className="kicker text-ink/40">Where you create</span>
+        <span className="h-px flex-1 bg-ink/10" />
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -146,7 +146,7 @@ export function ApplyForm() {
                 {p.label}
               </label>
               <div className="group relative">
-                <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-sand/45 transition-colors group-focus-within:text-electric">
+                <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-ink/40 transition-colors group-focus-within:text-deep">
                   <Icon className="h-5 w-5" />
                 </span>
                 <input
@@ -164,7 +164,7 @@ export function ApplyForm() {
         <div className="sm:col-span-2">
           <label className={LABEL} htmlFor="followers">
             Estimated total audience / follower count{" "}
-            <span className="text-sand/45">(optional)</span>
+            <span className="text-ink/40">(optional)</span>
           </label>
           <input
             id="followers"
@@ -178,7 +178,7 @@ export function ApplyForm() {
       </div>
 
       {errors.socials && (
-        <p className="mt-4 rounded-lg border border-ember/30 bg-ember/10 px-4 py-2.5 text-sm text-ember">
+        <p className="mt-4 rounded-lg border border-ember/30 bg-ember/10 px-4 py-2.5 text-sm text-ember-600">
           {errors.socials}
         </p>
       )}
@@ -189,7 +189,7 @@ export function ApplyForm() {
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="mt-4 rounded-lg border border-ember/30 bg-ember/10 px-4 py-2.5 text-sm text-ember"
+            className="mt-4 rounded-lg border border-ember/30 bg-ember/10 px-4 py-2.5 text-sm text-ember-600"
           >
             {serverError}
           </motion.p>
@@ -199,7 +199,7 @@ export function ApplyForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="group mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-ember px-8 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-ember/90 disabled:cursor-not-allowed disabled:opacity-70"
+        className="group mt-7 flex w-full items-center justify-center gap-2 rounded-full bg-ember px-8 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-ember-600 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === "submitting" ? (
           <>
@@ -208,14 +208,14 @@ export function ApplyForm() {
           </>
         ) : (
           <>
-            Apply to partner
+            Join the network
             <ArrowIcon className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-0.5" />
           </>
         )}
       </button>
 
-      <p className="mt-4 text-center text-xs text-sand/45">
-        Applications reviewed weekly · No spam, ever.
+      <p className="mt-4 text-center text-xs text-ink/45">
+        Free to join · Applications reviewed weekly · No spam, ever.
       </p>
     </form>
   );

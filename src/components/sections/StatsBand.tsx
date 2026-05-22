@@ -9,30 +9,34 @@ const STATS = [
 
 export function StatsBand() {
   return (
-    <section className="section-x relative overflow-hidden bg-ink-900 py-20 sm:py-24">
-      <div className="pointer-events-none absolute -right-[10%] top-1/2 -z-0 h-[40vh] w-[40vh] -translate-y-1/2 rounded-full bg-deep/40 blur-[120px]" />
-      <div className="relative mx-auto max-w-7xl">
-        <Reveal className="max-w-2xl">
-          <Kicker>By the numbers</Kicker>
-          <h2 className="mt-6 font-display text-3xl font-bold leading-[1] text-paper sm:text-5xl">
+    <section className="section-x bg-cream py-24 sm:py-28">
+      <div className="mx-auto max-w-7xl">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <div className="flex justify-center">
+            <Kicker>By the numbers</Kicker>
+          </div>
+          <h2 className="mt-6 font-display text-4xl font-bold leading-[1.02] text-ink sm:text-5xl">
             Engagement you can actually measure.
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-px sm:grid-cols-3">
-          {STATS.map((s, i) => (
-            <Reveal
-              key={s.label}
-              delay={i * 0.1}
-              className={`py-6 sm:py-2 ${i > 0 ? "sm:border-l sm:border-white/10 sm:pl-8" : "sm:pr-8"}`}
-            >
-              <div className="font-display text-5xl font-bold text-paper sm:text-6xl">
-                {s.figure}
+        <Reveal delay={0.1} className="mt-14">
+          <div className="grid overflow-hidden rounded-3xl bg-white shadow-[0_30px_80px_-55px_rgba(18,28,37,0.5)] ring-1 ring-ink/5 sm:grid-cols-3">
+            {STATS.map((s, i) => (
+              <div
+                key={s.label}
+                className={`p-8 text-center sm:p-10 ${i > 0 ? "border-t border-ink/8 sm:border-l sm:border-t-0" : ""}`}
+              >
+                <div className="font-display text-5xl font-bold text-deep sm:text-6xl">
+                  {s.figure}
+                </div>
+                <p className="mx-auto mt-3 max-w-[14rem] text-[15px] text-ink/60">
+                  {s.label}
+                </p>
               </div>
-              <p className="mt-3 max-w-[15rem] text-[15px] text-sand/65">{s.label}</p>
-            </Reveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
