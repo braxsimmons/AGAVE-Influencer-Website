@@ -1,0 +1,16 @@
+﻿.my-infoBar-element-icon-l {
+    font-size: 2em;
+
+}
+.my-infoBar-element-icon-r {
+    font-size: 2em;
+}
+.inheritWidth {
+width:inherit;
+}
+
+.my-infoBar-element-text{
+
+    text-align:center;
+    flex: 1 0 80%
+    }

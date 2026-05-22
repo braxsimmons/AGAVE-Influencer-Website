@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" class="hitlist-demo">
+<head>
+    <meta charset="utf-8" />
+    <base href="./" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Agave Live — UI demo</title>
+    <script src="https://use.fontawesome.com/6a18a30601.js"></script>
+    <link rel="icon" href="assets/AgaveFavicon.png" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/infobar.min.css" />
+    <link rel="stylesheet" href="assets/infobar.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="demo-shell.css" />
+    <link rel="stylesheet" href="tutorial.css" />
+    <style>
+        /* Prevent zoom on the main increment button across all browsers */
+        .main-button,
+        button[data-testid="btn-increment"] {
+            touch-action: manipulation !important;
+            -webkit-touch-callout: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            -webkit-tap-highlight-color: transparent !important;
+        }
+
+        /* Additional mobile-specific button protection */
+        @media (hover: none) and (pointer: coarse) {
+            .main-button,
+            button[data-testid="btn-increment"] {
+                -webkit-touch-callout: none !important;
+                -webkit-user-select: none !important;
+                user-select: none !important;
+                touch-action: manipulation !important;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        var str = navigator.userAgent;
+        var instagram = str.indexOf("Instagram");
+        var facebook = str.indexOf("FB");
+
+        if (instagram != -1) {
+            alert("Instagram browser detected.  For the best user experience please open in a browser.");
+        }
+        if (facebook != -1) {
+            alert("Facebook browser detected.  For the best user experience please open in a browser.");
+        }
+
+        // Cache the mobile detection result to avoid repeated regex evaluation
+        var cachedIsMobile = null;
+
+        function isMobile() {
+            // Return cached result if already computed
+            if (cachedIsMobile !== null) {
+                return cachedIsMobile;
+            }
+
+            var check = false;
+            (function (a, b) {
+                if (
+                    /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
+                        a
+                    ) ||
+                    /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(
+                        a.substr(0, 4)
+                    )
+                ) {
+                    check = true;
+                }
+            })(navigator.userAgent || navigator.vendor || window.opera);
+
+            // Cache the result
+            cachedIsMobile = check;
+            return check;
+        }
+        function vmVidLoaded() {
+            var el = document.getElementById("loading-screen");
+            el.classList.add("hide");
+        }
+    </script>
+</head>
+<body class="d-flex justify-content-center align-items-center" data-ng-app="hitListApp" check-mobile data-ng-controller="hitListCtrl as hlCtrl">
+    <div id="rootDiv" class="holder bg-beige">
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="d-flex flex-column justify-content-around align-items-center h-100 w-100" data-ng-class="{'hide': Ready>0}">
+            <div class="text-center">
+                <h2>Getting Things Ready</h2>
+                <p class="text-gray">
+                    <span class="text-large">Your experience is loading&hellip;</span>
+                    <br />
+                    <small>
+                        Your information is always kept private and secure.
+                    </small>
+                </p>
+            </div>
+            <div id="loading-icon"></div>
+            <div id="powered-by" class="text-center">
+                <small class="text-gray">Powered By</small>
+                <br />
+                <br />
+                <img src="assets/Agave-Logo-Bold.svg" alt="AGAVE">
+            </div>
+        </div>
+
+        <!-- Login Screen -->
+        <div id="login-screen" data-ng-class="{'hide': Ready>1}">
+            <div class="holder">
+
+                <login-media media-type="{{ds.Dynamic.Login.Media.Type}}"
+                             video-id="{{ds.Dynamic.Login.Media.VideoId}}"
+                             video-type="{{ds.Dynamic.Login.Media.VideoType}}"
+                             image-url="{{ds.Dynamic.Login.Media.ImageUrl}}"
+                             player-id="vidLogin">
+                </login-media>
+
+
+
+                <!-- Log In Form -->
+                <form id="login-form" class="d-flex flex-column justify-content-between align-items-center">
+                    <p class="h4 pt-2 text-center" ng-bind-html="ds.Dynamic.Login.Text.Header">
+                    </p>
+                    <button ng-if="ds.AnonLogin.Allowed" type="submit" class="ng-cloak mb-4 w-65  btn btn-wide btn-round  d-flex justify-content-between align-items-center ng-cloak" data-ng-click="submit('A')" clickonce="Loading..." style="width: 80%;height: 50px;" data-ng-class="Ready ? 'black-section-link' : 'disabled-section-link'">
+                        <span class="nowrap">{{ (Ready < 1) ? 'Loading...' : 'Play Anonymously'}}</span>
+                        <i class="fa fa-chevron-right" data-ng-class="Ready ? '' : 'hide'"></i>
+                    </button>
+                    <div ng-if="ds.AnonLogin.Allowed" class="w-90 text-center ng-cloak"> or log in below</div>
+                    <div class="w-90">
+
+                        <div class="h3 font-weight-normal line-height-6 mt-3 ml-2">
+                            <div class="mb-2 ">
+                                <div class="form-label">My Name is:</div>
+                                <input type="text" class="form-inline-rounded-lA ng-pristine ng-valid ng-valid-required ng-touched" placeholder="first name" name="firstName" data-ng-model="ds.User.FirstName" data-ng-model-options="{updateOn: 'blur'}" required="required" />
+                            </div>
+
+                            <div class="form-label">My Email is:</div>
+                            <input type="email" class="form-inline-rounded-lA ng-pristine ng-valid ng-valid-required ng-touched" placeholder="your@email.com" name="email" data-ng-pattern="ds.emailPattern" data-ng-model="ds.User.Email" data-ng-model-options="{updateOn: 'blur'}" required="required" />
+
+                            <!-- Seat section hidden for demo
+                            <div class="mb-2 mt-2" ng-show="ds.Dynamic.Layout.ShowSeat" ng-hide>
+                                <div class="form-label-seat">My Seat Section is:</div>
+                                <input type="text" class="form-inline-rounded-seat ng-pristine ng-valid ng-valid-required ng-touched" placeholder="seat" name="seat" data-ng-model="ds.User.LastName" data-ng-model-options="{updateOn: 'blur'}" required="required" />
+                            </div>
+                            -->
+                        </div>
+                        <div class="wh-100 text-center mt-8 mb-5 text-large">
+                            <div class="w-80 pt-5 text-center pw-p10" ng-bind-html="ds.Dynamic.Login.Text.ContestEntry">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="w-80  btn btn-wide btn-round d-flex justify-content-between align-items-center ng-cloak" data-ng-click="submit()" clickonce="Loading..." style="width: 80%;height: 50px;" data-ng-class="Ready ? 'black-section-link' : 'disabled-section-link'">
+                        <span>{{ (Ready < 1) ? 'Loading...' : 'Enter Giveaway'}}</span>
+                        <i class="fa fa-chevron-right" data-ng-class="Ready ? '' : 'hide'"></i>
+                    </button>
+                    <label class="d-flex align-items-center justify-content-center mt-3">
+                        <input type="checkbox" checked />
+                        <span>
+                            I agree to the <a href="#" onclick="event.preventDefault();">Terms &amp; Conditions</a>
+                        </span>
+                    </label>
+
+                </form>
+            </div>
+        </div>
+
+        <div id="main-console" data-ng-class="{'show': Ready>1}">
+            <!-- Header -->
+            <header class="d-flex justify-content-between align-items-center">
+                <a href="" class="d-flex align-items-center">
+                    <img src="assets/Agave-Logo-Bold.svg" alt="AGAVE" class="header-logo" />
+                </a>
+                <button class="menu-button" type="button" ng-click="ds.Pages.Menu.Show = true;">
+                    <img class="menu-icon" src="assets/menu-icon@2x.png" height=12 width=16 />
+                </button>
+            </header>
+            <!-- Navigation Drawer -->
+            <nav id="side-nav" ng-class="{'open': ds.Pages.Menu.Show == true}">
+                <div class="text-right">
+                    <button class='menu-button text-right' type="button" ng-click="ds.Pages.Menu.Show = false;">
+                        <span class="button-icon">&times;&nbsp;&nbsp;</span>
+                    </button>
+                </div>
+                <ul>
+                    <li>
+                        <a data-ng-click="hidePopup();ds.Pages.About.Show = true;ds.Pages.Menu.Show = false;">About</a>
+                    </li>
+                    <li>
+                        <a data-ng-click="hidePopup();ds.Pages.Profile.Show = true;ds.Pages.Menu.Show = false;">Profile</a>
+                    </li>
+                    <li>
+                        <a data-ng-click="hidePopup();ds.Pages.ShareCode.Show = true;ds.Pages.Menu.Show = false;">Share Code</a>
+                    </li>
+                    <li>
+                        <a data-ng-click="hidePopup();ds.Pages.PreviousWinners.Show = true;ds.Pages.Menu.Show = false;">Previous Winners</a>
+                    </li>
+                </ul>
+            </nav>
+            <ghl-questions flag="hitbuttonflag"></ghl-questions>
+            <ghl-captcha-and-coupon flag="hitbuttonflag"></ghl-captcha-and-coupon>
+            <ghl-coupon flag="hitbuttonflag"></ghl-coupon>
+            <ghl-media flag="hitbuttonflag"></ghl-media>
+            <ghl-prize-claim flag="hitbuttonflag"></ghl-prize-claim>
+            <ghl-prize-qualifications></ghl-prize-qualifications>
+            <ghl-anon-win-login></ghl-anon-win-login>
+            <section data-ng-show="ds.Pages.Paused.Show" class="d-flex flex-column wh-100-minus-header enable-scroll  ng-cloak fade-overlay">
+                <div class="d-flex align-items-strech align-content-stretch flex-auto">
+                    <div class="fullscreen-container" data-ng-click="ds.Pages.Paused.Show = false;">
+                        <img src="assets/Paused.png" class="fullscreen-image" alt="Full Screen Image" />
+                    </div>
+                </div>
+                <div class="text-center w-100">
+                    <div class="flex-spacer"></div>
+                    <div class="btn-wrapper">
+                        <button type="submit" class="mt-2em btn btn-round btn-black btn-wide" data-ng-click="ds.Pages.Paused.Show = false;">
+                            <span>Close</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section data-ng-show="ds.Pages.PausedClick.Show" class="d-flex flex-column wh-100-minus-header enable-scroll  ng-cloak fade-overlay">
+                <div class=" d-flex align-items-strech align-content-stretch flex-auto">
+                    <div class="fullscreen-container" data-ng-click="ds.Pages.PausedClick.Show = false;">
+                        <img src="assets/Paused.png" class="fullscreen-image" alt="Full Screen Image" />
+                    </div>
+                </div>
+                <div class="text-center w-100">
+                    <div class="flex-spacer"></div>
+                    <div class="btn-wrapper">
+                        <button type="submit" class="mt-2em btn btn-round btn-black btn-wide" data-ng-click="ds.Pages.PausedClick.Show = false;">
+                            <span>Close</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section data-ng-show="ds.Pages.GoingLive.Show" class="d-flex flex-column wh-100-minus-header enable-scroll  ng-cloak" fade-overlay>
+                <div class=" d-flex align-items-strech align-content-stretch flex-auto">
+                    <div class="fullscreen-container" data-ng-click="ds.Pages.GoingLive.Show = false;">
+                        <img src="assets/Paused.png" class="fullscreen-image" alt="Full Screen Image" />
+                    </div>
+                </div>
+                <div class="text-center w-100">
+                    <div class="flex-spacer"></div>
+                    <div class="btn-wrapper">
+                        <button type="submit" class="mt-2em btn btn-round btn-black btn-wide" data-ng-click="ds.Pages.GoingLive.Show = false;">
+                            <span>Close</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section id="About" data-ng-show="ds.Pages.About.Show" class="d-flex flex-column wh-100-minus-header enable-scroll ng-cloak">
+                <div class=" d-flex align-items-strech align-content-stretch flex-auto">
+                    <div class="w-90 ml-3 mt-2 text-large">
+                        <!-- Show Question button removed for demo -->
+                        <p class="h3">About</p>
+                        <p>Welcome to Agave Live. Think of it as the digital version of the radio game &quot;Caller #9 wins concert tickets&quot;.  Except here, we give away all kinds of exciting prizes.</p>
+
+                        <p>Tap the hit button to see what number you land on. Keep tapping &mdash; hurry because the number will move up with every user hit.  We give out several grand prizes and many smaller prizes in every contest. Your personal information is never sold or spammed.</p>
+
+                        <p>There are often hidden prizes and typically over 30 winning numbers per contest so there are plenty of opportunities to win.  Good luck!</p>
+
+                        <!-- Game Rules and Terms links configured per deployment -->
+
+                        <p>&nbsp;</p><p>&nbsp;</p>
+
+
+                    </div>
+                </div><!--61202786-->
+                <div id="ecwidProductContainer">
+                    <div id="my-store-61202786"></div>
+                    <div id="my-categories-61202786"></div>
+                    <div id="my-search-61202786"></div>
+                    <!--<div class="ec-cart-widget"></div>-->
+                </div>
+                <!--<a href="javascript:setTimeout(reFocus,2000);">
+                <div id="ecwidProductContainer">
+                    <div class="ecsp ecsp-SingleProduct-v2 ecsp-SingleProduct-v2-bordered ecsp-SingleProduct-v2-centered ecsp-Product ec-Product-359433531" itemscope itemtype="http://schema.org/Product" data-single-product-id="359433531"><div itemprop="image"></div><div class="ecsp-title" itemprop="name" content="$375 Donation  - Receive the gift of a 4 Night Cruise"></div><div itemtype="http://schema.org/Offer" itemscope itemprop="offers"><div class="ecsp-productBrowser-price ecsp-price" itemprop="price" content="375" data-spw-price-location="button"><div itemprop="priceCurrency" content="USD"></div></div></div><div customprop="options"></div><div customprop="qty"></div><div customprop="addtobag"></div></div>
+
+                </div>
+            </a>-->
+
+                <div class="flex-spacer"></div>
+                <div class="btn-wrapper">
+                    <button type="submit" class="mt-2em btn btn-round btn-black btn-wide" data-ng-click="ds.Pages.About.Show = false;">
+                        <span>Close</span>
+                    </button>
+                </div>
+            </section>
+            <section id="ShareCode" data-ng-show="ds.Pages.ShareCode.Show" class="d-flex flex-column wh-100-minus-header enable-scroll  ng-cloak">
+                <div class=" d-flex align-items-strech align-content-stretch flex-auto">
+                    <div class="w-90 ml-3 mt-2 text-large">
+                        <p class="h3 w-90">Share Code</p>
+                        <p> Below is your share code:</p>
+                        <div class="h2" style="overflow-wrap: break-word;">{{ds.User.RefShortCode}}</div>
+                        <div class="text-center">
+                            <button class="btn btn-close shareCodeBtn" type="button" ng-click-copy="{{ds.User.RefShortCode}}">Copy Share Code</button>
+                        </div>
+                        <p>
+                            Share this code with your friends via text, email, or social media. When someone signs up using your code and wins a prize, you win too! Referral prizes are awarded at the end of each campaign. Spread the love and increase your chances of winning.
+                        </p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <div>Users Playing For Me: {{ds.User.RefThroughShortCodeCount}}</div>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+
+                    </div>
+                </div>
+                <div class="text-center w-100">
+                    <div class="flex-spacer"></div>
+                    <div class="btn-wrapper">
+                        <button type="submit" class="mt-2em btn btn-round btn-black btn-wide" data-ng-click="ds.Pages.ShareCode.Show = false;">
+                            <span>Close</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section id="PreviousWinners" data-ng-show="ds.Pages.PreviousWinners.Show" class="d-flex flex-column wh-100-minus-header enable-scroll ng-cloak bg-white">
+                <div class=" d-flex align-items-strech align-content-stretch flex-wrap">
+                    <div class="w-100 text-large text-center bg-beige border-round-b-35 pb-4 mb-2" data-ng-click="ds.Pages.PreviousWinners.Show = false;">
+                        <span class="agave-icon-x wl-x" ng-cloak>
+                            <svg class="wh-100 svg-filter-soft-beige"><use xlink:href="assets/Agave-icons.svg#x-square"></use></svg>
+                        </span>
+                        <span class="agave-icon-large" ng-cloak>
+                            <svg class="wh-100  svg-filter-black"><use xlink:href="assets/Agave-icons.svg#trophy-star"></use></svg>
+                        </span>
+                        <div class="h3">PREVIOUS PRIZE<br />WINNERS</div>
+                    </div>
+                    <div class="w-100">
+                        <div class="" ng-repeat="w in ds.Winners.List" ng-class-even="'Even'" ng-class-odd="'Odd'">
+                            <div class="w-100 d-flex-inline flex-row pb-2">
+                                <div class="flex-column f-5"></div>
+                                <div class="flex-column f-20 text-center wl-row">
+                                    <span class="agave-icon-medium" ng-cloak>
+                                        <svg class="wh-100 "><use xlink:href="assets/Agave-icons.svg#trophy"></use></svg>
+                                    </span>
+                                </div>
+                                <div class="flex-column f-70 wl-row">
+                                    <div class="d-flex flex-column pb-1">
+                                        <div class="flex-auto text-larger-3 font-weight-bold mt-1">{{w.Name}}</div>
+                                        <div class="flex-auto ">{{w.Prize}}</div>
+                                        <div class="flex-auto ">Prize Number: {{w.WinningNumber | number}}</div>
+                                    </div>
+                                </div>
+                                <div class="flex-column f-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-spacer"></div>
+                    <div class="btn-wrapper">
+                        <button type="submit" class="mt-2em btn btn-round btn-black btn-wide" data-ng-click="ds.Pages.PreviousWinners.Show = false;">
+                            <span>Close</span>
+                        </button>
+                    </div>
+            </section>
+            <section id="Profile" data-ng-show="ds.Pages.Profile.Show" class="d-flex flex-column wh-100-minus-header enable-scroll ng-cloak">
+                <div class="d-flex align-items-strech align-content-stretch flex-auto">
+                    <div class="w-90 ml-3 mt-2 text-large">
+                        <p class="h3">My Information:</p>
+                        <div class="profile">
+                            <div ng-if="ds.User.ImageUrl != ''" ng-class="ds.User.GID == '' ? 'circular--landscape' :'circular--portrait'">
+                                <img ng-src="{{ds.User.ImageUrl || ''}}" ng-cloak />
+                            </div>
+
+                            <div>Name: {{ds.User.FirstName}}</div>
+                            <div>Email: {{ds.User.Email}}</div>
+                            <div ng-show="ds.Dynamic.Layout.ShowSeat" ng-hide>Seat: {{ds.User.LastName}}</div>
+                            <div>Total Clicks Today: {{ds.UserTotalClicks}}</div>
+                            <div class="flex-spacer"></div>
+                            <div class="btn-wrapper">
+                                <button type="submit" class="mt-2em btn btn-round btn-black btn-wide" data-ng-click="signoutComplete()">
+                                    <span>Logout</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!--<div class="btnSignout btn btn-primary" ng-click="gsignout()" ng-show="ds.User.GID != ''">Sign out</div>
+                    <div class="btnSignout btn btn-primary" ng-click="fbsignout()" ng-show="ds.User.FBID != ''">Sign out</div>-->
+
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+                <div class="flex-spacer"></div>
+                <div class="btn-wrapper">
+                    <button type="submit" class="mt-2em btn btn-round btn-black btn-wide" data-ng-click="ds.Pages.Profile.Show = false;">
+                        <span>Close</span>
+                    </button>
+                </div>
+            </section>
+            <section id="HowToPlay" data-ng-show="HowToPlay.Show" class="wh-100 enable-scroll ng-cloak">
+                <div class="d-flex align-items-strech align-content-stretch flex-wrap">
+                    <div ng-switch="ds.WinHighestQualified">
+                        <div ng-switch-when="false" class="w-90 ml-3 mt-2 text-large">
+                            <p class="h3">How to Play</p>
+                            How does this contest work? It’s simple!
+                            <p>1. Play for a prize by hitting the circular button on the bottom right-hand corner of the console. </p>
+                            <p>2. Keep hitting the button until &quot;your hit number&quot; matches the &quot;next winning number&quot;. </p>
+                            <p>3. You may notice the &quot;HIT NUMBER&quot; increases by more than 1 each time you hit the button. This is because other users are also hitting that button. You are in a race against your fellow users to land on the &quot;NEXT WINNING NUMBER&quot;! Keep hitting! </p>
+                            <p>
+                                4. You&#39;ll see over 20 winning numbers each day in the &quot;Next Winning Numbers&quot; box. Each winning number corresponds to one of the four prizes available. You won’t know which prize it is until you land on the Next Winning Number. The quantities of each prize type per contest will always be disclosed at
+                                the bottom of the contest module.
+                            </p>
+                            <p>5. In the center of the screen you&#39;ll see the image of 4 prizes that are displayed in a slider. You may swipe to see each prize. </p>
+                            <p>6. Unlock higher value prizes by clicking on the prize image and performing simple tasks. <i>(Don&#39;t worry, your personal information is never sold or spammed.)</i></p>
+                            <p>7. Your odds never decrease. As more players play more prizes are added! </p>
+                            <p>8. Winning prizes will be sent electronically to the email address provided. </p>
+                            <p>9. Click on “Previous Winners” in your account tab to see previous winners. </p>
+                            <p>
+                                10. Have Fun!
+                            </p>
+                        </div>
+                        <div ng-switch-when="true" class="w-90 ml-3 mt-2 text-large">
+
+                            You'll win the highest prize that you're qualified for.
+                            How does the Agave work? Its simple!
+                            <p> 1. In the center of the screen you'll see the image of 4 prizes that are displayed in a slider. Prize values range from $10 - $1000. </span>
+                            <p>2. Slide the image your preferred prize by swiping on the image. Higher value prizes are unlocked for players who invite friends to play or who engage on our social media platforms. (Don't worry, your personal information is never sold and never posted to Facebook.) </span>
+                            <p>3. Play for a prize by hitting the circular button on the bottom right hand corner of the console. </span>
+                            <p>4. Keep hitting the button until "your hit number" matches the "next winning number". </span>
+                            <p>5. You may notice the "HIT NUMBER" increases by more than 1 each time you hit the button. This is because other users are also hitting that button. You are in a race against your fellow users to reach the "next winning number"! Keep hitting! </span>
+                            <p>6. You'll see over 10 winning numbers each day in the "Next Winning Numbers" box. Each number is assigned a color. That color will match a color assigned to one of the four prizes. You’ll know which prize you are currently playing for by comparing the color of the number to the color of the prize. For example, red number = red prize.</span>
+                            <p>7. Your odds never decrease. As more players play more prizes are added! </span>
+                            <p>8. Winning prizes will be sent electronically to the email address provided by the winning user when he/she started playing the game. </span>
+
+                            <p>
+                                9. Have Fun!
+                            </p>
+
+
+                        </div>
+                    </div>
+                    <div class="text-center w-100 mb-5">
+                        <button type="submit" class="mb-5 btn btn-round btn-black btn-wide" data-ng-click="HowToPlay.Show = false;">
+                            <span>Close</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Prizes Section -->
+            <section id="prizes-section" class="d-flex align-items-strech align-content-stretch flex-wrap">
+                <div class="prize" data-ng-class="ds.L1Prize.Form.Passed ? 'qualified' : ''" style="background-image: url({{ ds.L1Prize.ImageURL }})" data-ng-mouseenter="ds.Qualifications.Item = 1" data-ng-click="ds.Qualifications.Item = 1; showPrizeQualifications()">
+                    <div class="prize-content">
+                        <i class="status-icon" ng-class="{'L1ColorBackground': !ds.WinHighestQualified}"></i>
+                        <span class="prizeTitle">{{ds.L1Prize.Title}}</span>
+                        <span id="ptw">Play to win this prize!</span>
+                    </div>
+                </div>
+                <div class="prize" data-ng-class="ds.L2Prize.Form.Passed ? 'qualified' : ''" style="background-image: url({{ ds.L2Prize.ImageURL }})" data-ng-mouseenter="ds.Qualifications.Item = 2" data-ng-click="ds.Qualifications.Item = 2; showPrizeQualifications()">
+                    <div class="prize-content">
+                        <i class="status-icon" ng-class="{'L2ColorBackground': !ds.WinHighestQualified}"></i>
+                        <span class="prizeTitle">{{ds.L2Prize.Title}}</span>
+                        <span class="tapToUnlock">Tap to Unlock!</span>
+                    </div>
+                </div>
+                <div class="prize" data-ng-class="ds.L3Prize.Form.Passed ? 'qualified' : ''" style="background-image: url({{ ds.L3Prize.ImageURL }})" data-ng-mouseenter="ds.Qualifications.Item = 3" data-ng-click="ds.Qualifications.Item = 3; showPrizeQualifications()">
+                    <div class="prize-content">
+                        <i class="status-icon" ng-class="{'L3ColorBackground': !ds.WinHighestQualified}"></i>
+                        <span class="prizeTitle">{{ds.L3Prize.Title}}</span>
+                        <span class="tapToUnlock">Tap to Unlock!</span>
+                    </div>
+                </div>
+                <div class="prize" data-ng-class="ds.L4Prize.Form.Passed ? 'qualified' : ''" style="background-image: url({{ ds.L4Prize.ImageURL }})" data-ng-mouseenter="ds.Qualifications.Item = 4" data-ng-click="ds.Qualifications.Item = 4; showPrizeQualifications()">
+                    <div class="prize-content">
+                        <i class="status-icon" ng-class="{'L4ColorBackground': !ds.WinHighestQualified}"></i>
+                        <span class="prizeTitle">{{ds.L4Prize.Title}}</span>
+                        <span class="tapToUnlock">Tap to Unlock!</span>
+                    </div>
+                </div>
+
+                <div class="swiper-container hide-z" id="prizes-slider" ng-hide="ds.Qualifications.Show">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="prize current" id="current-prize" data-ng-class="ds.L1Prize.Form.Passed ? 'qualified' : ''" style="background-image: url({{ ds.L1Prize.ImageURL }})" data-ng-mouseenter="ds.Qualifications.Item = 1" data-ng-click="ds.Qualifications.Item = 1; showPrizeQualifications()">
+                                <div class=" prize-content">
+                                    <i class="status-icon" ng-class="{'L1ColorBackground': !ds.WinHighestQualified}"></i>
+                                    <span class="prizeTitle">{{ds.L1Prize.Title}}</span>
+                                    <span id="ptw2">Play to win this prize!</span>
+                                    <span class="tapToUnlock">Tap to Unlock!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="prize prize-full" data-ng-class="ds.L2Prize.Form.Passed ? 'qualified' : ''" style="background-image: url({{ ds.L2Prize.ImageURL }})" data-ng-mouseenter="ds.Qualifications.Item = 2" data-ng-click="ds.Qualifications.Item = 2; showPrizeQualifications()">
+                                <div class=" prize-content">
+                                    <i class="status-icon" ng-class="{'L2ColorBackground': !ds.WinHighestQualified}"></i>
+                                    <span class="prizeTitle">{{ds.L2Prize.Title}}</span>
+                                    <span class="tapToUnlock">Tap to Unlock!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="prize prize-full" data-ng-class="ds.L3Prize.Form.Passed ? 'qualified' : ''" style="background-image: url({{ ds.L3Prize.ImageURL }})" data-ng-mouseenter="ds.Qualifications.Item = 3" data-ng-click="ds.Qualifications.Item = 3; showPrizeQualifications()">
+                                <div class="prize-content">
+                                    <i class="status-icon" ng-class="{'L3ColorBackground': !ds.WinHighestQualified}"></i>
+                                    <span class="prizeTitle">{{ds.L3Prize.Title}}</span>
+                                    <span class="tapToUnlock">Tap to Unlock!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide">
+                            <div class="prize prize-full" data-ng-class="ds.L4Prize.Form.Passed ? 'qualified' : ''" style="background-image: url({{ ds.L4Prize.ImageURL }})" data-ng-mouseenter="ds.Qualifications.Item = 4" data-ng-click="ds.Qualifications.Item = 4; showPrizeQualifications()">
+                                <div class="prize-content">
+                                    <i class="status-icon" ng-class="{'L4ColorBackground': !ds.WinHighestQualified}"></i>
+                                    <span class="prizeTitle">{{ds.L4Prize.Title}}</span>
+                                    <span class="tapToUnlock">Tap to Unlock!</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <!--
+                    <div class="swiper-slide">
+                        <div class="prize prize-full">
+                            <div class="mb--1 videoWrapper">
+                                <video-player video-id="hU2PWD--7dc" player-id="vidSlider" video-type="youtube" autoplay="0"></video-player>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </section>
+
+            <!-- How To Play -->
+            <div style="display: flex; width: 100%">
+                <div href=""
+                     style="width: 100%"
+                     id="how-to-play"
+                     class="black-section-link d-flex justify-content-between align-items-center"
+                     data-ng-click="HowToPlay.Show = true;">
+                    <span style="margin: 0 auto; text-align: center; width: 100%;">How to Play</span>
+                    <i class="fa fa-chevron-right"></i>
+                </div>
+            </div>
+            <!-- Interactive Section -->
+            <section id="interactive-section" class="d-flex justify-content-center">
+                <div class="d-flex flex-column w-100">
+                    <div class="d-flex flex-row w-100">
+                        <div class="number-block w-50 pb-2"><small>Winning Number</small></div>
+                        <div class="number-block w-50 pb-2"><small>Your Number</small> </div>
+                    </div>
+                    <div class="d-flex flex-row w-100">
+                        <div class="number-block w-48">
+                            <span class="number large-number" id="winning-number">{{ds.CurrentPrize.Number | number}}</span>
+                        </div>
+                        <div class="number-bb flex-row justify-content-center flex-grow-none w-4">
+                            <div class="d-flex flex-column align-items-stretch justify-content-center h-100">
+                                <div class="d-flex flex-spacer"></div>
+                                <div class="d-flex ">
+                                    <span class="agave-icon-number-separator">
+                                        <svg class="wh-100 "><use xlink:href="assets/Agave-icons.svg#circle"></use></svg>
+                                    </span>
+                                </div>
+                                <div class="d-flex flex-spacer"></div>
+                            </div>
+                        </div>
+                        <div class="number-block w-48">
+                            <span class="number large-number" data-testid="counter-value" id="current-number" data-ng-show="!hitbuttonflag"><span data-ng-show="!hitbuttonflag">{{(ds.UserNumber > 0) ? (ds.UserNumber | number) : '?'}}</span></span>
+                            <div class="number-spinner-container" data-ng-class="{'hide-pause':!hitbuttonflag}"><div class="number-spinner"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row w-100" data-ng-show="NotQualified.Show && !ds.anonlogin.show">
+                        <div class="w-100">
+                            <div class="text-large text-center pt-2">
+                                You need to qualify for this prize to keep playing!  Hurry the winning number is getting close!
+                                <div class="pt-4"> <div id="LockedNumberNumber">{{ds.CurrentPrize.Number  - ds.LevelLock.Number}}</div><div id="LockedNumberText">CLICKS AWAY FROM<br />THE WINNING NUMBER</div></div>
+                                <div class="mt-4 w-60 btn btn-wide btn-round L{{ds.CurrentPrize.Level -10}}ColorBackground" data-ng-click="goToQualification()">Qualify</div>
+                            </div>
+
+                            <div class="pt-4 d-flex flex-row">
+                                <div class="mt-2 w-30 btn btn-w4 btn-round L{{ds.CurrentPrize.Level -10}}ColorBackground" data-ng-click="hideNotQualified()">Back</div>
+                                <div class="d-flex flex-column flex-spacer"></div>
+                                <div class="mt-2 w-30 nowrap btn  btn-round L{{ds.CurrentPrize.Level -10}}ColorBackground" data-ng-click="getNextEntry()">Check Number</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row w-100" data-ng-show="ds.AnonLogin.Show">
+                        <div id="bodyAnonLogin" class="d-flex flex-row w-100">
+                            <ghl-anonymous form="0"></ghl-anonymous>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row w-100" data-ng-show="!NotQualified.Show && !ds.AnonLogin.Show">
+                        <div class="number-list number-br d-flex flex-column w-30">
+                            <div class="d-flex flex-row">
+                                <div class="d-flex flex-column flex-spacer"></div>
+                                <div class="d-flex flex-column ">
+                                    <small>Next Winning #</small>
+                                    <ul class="fading-list">
+                                        <span data-ng-repeat="number in ds.WinningNumbers | idxGTFilter:5">
+                                        <li class="number L{{cColor.get(number.Level)}}Color" id="upcoming-number-{{$index}}"> {{(number.Number > 0) ? (number.Number | number) : ''  }}</li></span>
+                                    </ul>
+                                </div>
+                                <div class="d-flex flex-column flex-spacer"></div>
+                            </div>
+                        </div>
+                        <div class="main-button-holder d-flex flex-column w-70">
+                            <div class=" d-flex flex-row flex-spacer w-100 h-15"></div>
+                            <div class=" d-flex flex-row w-100">
+                                <div class="d-flex flex-column flex-spacer"></div>
+                                <div class="d-flex flex-column ">
+                                    <button type="button" data-testid="btn-increment" class="main-button" data-ng-click="getNextEntry()" data-ng-disabled="hitbuttonflag" data-ng-class="{'fade-in-out': ds.Status === 1}">
+                                        <img src="assets/favicon15.png" class="hit-button-icon" draggable="false" oncontextmenu="return false;" alt="" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="d-flex flex-row align-items-stretch justify-content-center"
+                     style="display: flex; width: 100%">
+                    <!-- chat widget shows to the client based on the S level-->
+                    <!-- <div
+                  style="width: {{ isMobileResult ? '20%' : '0%' }};"
+                  id="chat-widget-container"
+                  ng-if="ds.showChat"
+                >
+                  <div ng-if="!ds.isS2User">
+                    <div
+                      chat-widget
+                      widget-id="68532757832cc311fbce19dc"
+                      location-id="ZIRZZP8Ezl7ZOVQ5nE9U"
+                    ></div>
+                  </div>
+                  <div ng-if="ds.isS2User">
+                    <div
+                      chat-widget
+                      widget-id="690bbad94b2bc39bda40201b"
+                      location-id="dAzii7m29gCnAemt23eZ"
+                    ></div>
+                  </div>
+                </div> -->
+                    <div style="width: 100%;"
+                         class="container-fluid d-flex justify-content-center align-items-center">
+                        <div class="demo-infobar">
+                            <svg class="demo-infobar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg>
+                            <span class="demo-infobar-text">Tap the button &middot; Land on the winning number &middot; Win big prizes!</span>
+                        </div>
+                    </div>
+                    <!-- <div class="container-fluid d-flex align-items-stretch" style="display: flex; width: 100%;" data-ng-controller="infoBarCtrl as ibCtrl" ng-if="!ds.showChat || !isMobile()">
+                            <my-info-bar class="d-flex align-items-stretch w-100" info-bar-data="infoBarData" auto-play circular-tiles></my-info-bar>
+                        </div> -->
+                </div>
+            </footer>
+        </div>
+    </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+        <script>
+            (function () {
+                var el = document.getElementById('loading-icon');
+                var lottieLib = window.bodymovin || window.lottie;
+                if (el && lottieLib && lottieLib.loadAnimation) {
+                    lottieLib.loadAnimation({
+                        container: el,
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: 'assets/radial-wipe.json'
+                    });
+                }
+            })();
+        </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-touch.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-sanitize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.1.5/angular-local-storage.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/oclazyload/1.0.4/ocLazyLoad.min.js"></script>
+        <script src="demo-app.js"></script>
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            var swiper;
+            function initialize_swiper() {
+                var ptw2 = document.getElementById('ptw2');
+                if (ptw2) {
+                    ptw2.remove();
+                }
+                var sliderEl = document.getElementById('prizes-slider');
+                var prime = document.getElementById('current-prize');
+                if (!sliderEl || !prime || typeof Swiper === 'undefined') {
+                    return;
+                }
+                sliderEl.classList.remove('hide-z');
+                prime.classList.add('prize-full');
+                if (swiper && swiper.destroy) {
+                    swiper.destroy(true, true);
+                }
+                swiper = new Swiper('.swiper-container', {
+                    scrollbar: { el: '.swiper-scrollbar', hide: true },
+                    direction: 'horizontal',
+                    loop: true,
+                    pagination: { el: '.swiper-pagination', clickable: true },
+                    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                    autoplay: false
+                });
+                var scope = angular.element(document.getElementById('rootDiv')).scope();
+                if (scope && !scope.$$phase) {
+                    scope.$apply();
+                }
+            }
+        </script>
+        <script src="tutorial.js"></script>
+
+</body>
+</html>

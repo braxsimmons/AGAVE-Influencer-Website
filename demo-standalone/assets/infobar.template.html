@@ -1,0 +1,46 @@
+<div class="d-flex align-items-stretch inheritWidth my-infoBar-container">
+    <div class="d-flex align-items-stretch flex-column inheritWidth">
+        <div class="flex-row flex-spacer"></div>
+        <div class="flex-row align-items-stretch flex-auto">
+            <div class="d-flex align-items-stretch flex-auto w-100" ng-repeat="el in infoBarData">
+                <div ng-show="el.active" class="d-flex align-items-stretch {{'infobar-uid-' + el.style.CSSID}} {{'infobar-type-' + el.style.CSSTYPE }} inheritWidth ng-hide">
+                    <div class="flex-row flex-spacer"></div>
+                    <div ng-show="el.display" class="my-infobar-element d-flex align-items-stretch inheritWidth ng-hide">
+                        <div class="my-infoBar-element-data inheritWidth d-flex flex-row" ng-style="el.style.myInfoBarElementData">
+
+                            <div ng-if="el.icon.loc=='L' || el.icon.loc=='B'" class="d-flex-inline align-items-stretch flex-column">
+                                <div class="flex-row flex-spacer"></div>
+                                <div class="flex-row flex-grow-none">
+                                    <span class="agave-icon-infobar my-infoBar-element-icon-l col-2" ng-cloak>
+                                        <svg class="wh-100  svg-filter-black" ng-if="el.icon.src"><use xlink:href="assets/Agave-icons.svg#{{el.icon.src}}"></use></svg>
+                                    </span>
+                                </div>
+                                <div class="flex-row flex-spacer"></div>
+                            </div>
+
+                            <div class="my-infoBar-element-text d-flex-inline flex-column align-items-stretch" ng-class="getTextClass(el.icon.loc)" ng-style="el.blurb.style">
+                                <div class="flex-row flex-spacer"></div>
+                                <div class="flex-row flex-grow-none"><div class="innerText">{{interpolateText(el.blurb.text)}}</div><div ng-if="el.blurb.text2" class="innerText2">{{interpolateText(el.blurb.text2)}}</div></div>
+                                <div class="flex-row flex-spacer"></div>
+                            </div>
+
+                            <div ng-if="el.icon.loc=='R' || el.icon.loc=='B'" class="d-flex-inline align-items-stretch flex-column">
+                                <div class="flex-row flex-spacer"></div>
+                                <div class="flex-row flex-grow-none">
+                                    <span class="agave-icon-infobar my-infoBar-element-icon-r col-2" ng-cloak>
+                                        <svg class="wh-100  svg-filter-black" ng-if="el.icon.src"><use xlink:href="assets/Agave-icons.svg#{{el.icon.src}}"></use></svg>
+                                    </span>
+                                </div>
+                                <div class="flex-row flex-spacer"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="flex-row flex-spacer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-row flex-spacer"></div>
+
+    </div>
+</div>

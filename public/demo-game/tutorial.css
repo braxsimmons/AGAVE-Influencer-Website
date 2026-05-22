@@ -1,0 +1,256 @@
+/* ═══ AGAVE Demo Tutorial Overlay ═══ */
+
+.tut-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.tut-dark {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+}
+
+.tut-highlight {
+  position: absolute;
+  border: 2px solid #A79D95;
+  border-radius: 8px;
+  box-shadow: 0 0 0 9999px rgba(0,0,0,0.82), 0 0 20px rgba(167,157,149,0.4);
+  pointer-events: none;
+}
+
+.tut-highlight-multi {
+  position: absolute;
+  border: 2px solid #A79D95;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(167,157,149,0.4);
+  pointer-events: none;
+}
+
+.tut-svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tut-tooltip {
+  position: absolute;
+  z-index: 10002;
+  background: #1a1918;
+  border: 1px solid rgba(167,157,149,0.6);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  pointer-events: auto;
+  max-width: 300px;
+  animation: tutFadeIn 0.25s ease;
+}
+
+@keyframes tutFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tut-tooltip h3 {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.tut-tooltip p {
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(213,203,192,0.7);
+  margin: 0 0 16px;
+}
+
+.tut-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tut-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #433F3F;
+}
+
+.tut-dot.active {
+  background: #A79D95;
+}
+
+.tut-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.tut-btn {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 6px 16px;
+  transition: all 0.2s;
+}
+
+.tut-btn-back {
+  background: transparent;
+  color: rgba(213,203,192,0.6);
+}
+
+.tut-btn-back:hover { color: #fff; }
+.tut-btn-back:disabled { color: #433F3F; cursor: not-allowed; }
+
+.tut-btn-skip {
+  background: transparent;
+  color: rgba(213,203,192,0.3);
+  font-size: 10px;
+  padding: 4px 8px;
+}
+
+.tut-btn-skip:hover { color: rgba(213,203,192,0.6); }
+
+.tut-btn-next {
+  background: #A79D95;
+  color: #000;
+}
+
+.tut-btn-next:hover { background: #8a827b; }
+
+/* Login tooltip (no blocking) */
+.tut-login-tip {
+  position: fixed;
+  z-index: 10000;
+  background: #1a1918;
+  border: 1px solid rgba(167,157,149,0.6);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  pointer-events: none;
+  max-width: 300px;
+  animation: tutFadeIn 0.3s ease;
+}
+
+.tut-login-tip h3 {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.tut-login-tip p {
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(213,203,192,0.7);
+  margin: 0 0 8px;
+}
+
+.tut-login-tip .tut-hint {
+  font-family: sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #A79D95;
+  text-align: center;
+  margin: 0;
+}
+
+/* Click limit modal */
+.tut-limit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.tut-limit-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+}
+
+.tut-limit-modal {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: #DAD1C7;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.tut-limit-header {
+  background: #1a1918;
+  padding: 32px 24px;
+}
+
+.tut-limit-header .emoji { font-size: 40px; margin-bottom: 12px; }
+
+.tut-limit-header h1 {
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.tut-limit-body {
+  padding: 24px;
+}
+
+.tut-limit-body p {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #6b6560;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.tut-limit-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 50px;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  margin-bottom: 12px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.tut-limit-btn-primary {
+  background: #1a1918;
+  color: #fff;
+}
+
+.tut-limit-btn-primary:hover { background: #333; }
+
+.tut-limit-btn-secondary {
+  background: transparent;
+  color: #6b6560;
+  border: 1px solid rgba(167,157,149,0.3);
+}
+
+.tut-limit-btn-secondary:hover { background: rgba(0,0,0,0.05); }

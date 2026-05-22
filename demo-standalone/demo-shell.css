@@ -1,0 +1,281 @@
+/* Presentation layer: centers the phone-sized console on desktop, safe areas, polish */
+html.hitlist-demo {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+html.hitlist-demo *,
+html.hitlist-demo *::before,
+html.hitlist-demo *::after {
+    box-sizing: inherit;
+}
+
+html.hitlist-demo body {
+    margin: 0;
+    min-height: 100%;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(165deg, #ebe7e2 0%, #ddd8d2 50%, #cfc9c2 100%);
+}
+
+/* Full-bleed on small screens; padded “device frame” on large */
+@media (min-width: 520px) {
+    html.hitlist-demo body.d-flex {
+        padding: max(16px, env(safe-area-inset-top, 0px))
+            max(16px, env(safe-area-inset-right, 0px))
+            max(16px, env(safe-area-inset-bottom, 0px))
+            max(16px, env(safe-area-inset-left, 0px));
+    }
+
+    html.hitlist-demo #rootDiv.holder {
+        border-radius: 14px;
+        box-shadow:
+            0 28px 80px rgba(28, 22, 18, 0.2),
+            0 10px 28px rgba(28, 22, 18, 0.1);
+        max-height: min(100dvh - 32px, 1040px);
+        height: min(100dvh - 32px, 1040px);
+    }
+}
+
+/* Lottie mount */
+#loading-icon {
+    min-width: 120px;
+    min-height: 120px;
+}
+
+/* Login: inner .holder should not read as a second card */
+#login-screen .holder {
+    background: transparent;
+}
+
+/* Footer ticker: stable vertical rhythm */
+footer .container-fluid {
+    min-height: 2.75rem;
+}
+
+/* ── Demo polish overrides ────────────────────────────── */
+
+/* Login hero banner */
+.login-media-hero {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em 2em;
+}
+
+.login-hero-logo {
+    width: 55%;
+    max-width: 220px;
+    display: block;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* 1. Header bar */
+header {
+    height: 4.8% !important;
+    min-height: 38px;
+    padding-left: 4% !important;
+    padding-right: 4% !important;
+}
+
+/* Header logo */
+.header-logo {
+    height: 16px;
+    filter: brightness(0) invert(1);
+}
+
+.menu-icon {
+    height: 14px !important;
+    width: 18px !important;
+}
+
+/* 3. Wider input boxes on login form */
+.form-inline-rounded-lA {
+    min-width: 52% !important;
+    width: 52% !important;
+}
+
+/* 4. How to Play bar — bigger text, left/right justified */
+#how-to-play {
+    height: auto !important;
+    min-height: 3.2em;
+    padding: 1em 1.5em !important;
+}
+
+#how-to-play span {
+    text-align: left !important;
+    margin: 0 !important;
+    font-size: 1.15em;
+    font-weight: 600;
+}
+
+#how-to-play .fa-chevron-right {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+/* 5. Stop button pulse animation */
+.fade-in-out {
+    opacity: 1 !important;
+    animation: none !important;
+}
+
+/* Hit button icon */
+.hit-button-icon {
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-drag: none;
+}
+
+/* 6. Number layout — more breathing room */
+.large-number {
+    font-size: 2.4em !important;
+    letter-spacing: 0.02em;
+}
+
+.number-block {
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+#interactive-section > div {
+    padding-top: 5% !important;
+    padding-bottom: 5% !important;
+}
+
+.number-list {
+    width: 28% !important;
+    padding-top: 0.6em !important;
+}
+
+/* 7. Lock icon — use inline SVG data URI since icon-lock@2x.png is missing */
+.status-icon {
+    display: block !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M18 10h-1V7A5 5 0 0 0 7 7v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2ZM9 7a3 3 0 0 1 6 0v3H9V7Z'/%3E%3C/svg%3E") !important;
+    background-size: 50% !important;
+    background-repeat: no-repeat !important;
+    background-position: center 45% !important;
+}
+
+.prize.qualified .status-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E") !important;
+    background-position: center center !important;
+}
+
+/* 8. Static demo infobar */
+.demo-infobar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    padding: 0 1em;
+    width: 100%;
+    height: 100%;
+}
+
+.demo-infobar-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: #000;
+}
+
+.demo-infobar-text {
+    color: #000;
+    font-size: 0.95em;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+/* 9. Prize qualifications overlay */
+.demo-qual-overlay {
+    background: #fff;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.demo-qual-image {
+    width: 100%;
+    height: 35%;
+    background-size: cover;
+    background-position: center center;
+    background-color: #000;
+    position: relative;
+}
+
+.demo-qual-image-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 1.2em;
+}
+
+.demo-qual-prize-title {
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: 700;
+}
+
+.demo-qual-body {
+    padding: 1.5em 1.5em 0;
+}
+
+.demo-qual-status {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #A79D95;
+    margin-bottom: 0.8em;
+}
+
+.demo-qual-status .fa-lock {
+    margin-right: 0.3em;
+}
+
+.demo-qual-status .fa-check-circle {
+    margin-right: 0.3em;
+}
+
+.demo-qual-unlocked {
+    color: #3E9D35;
+}
+
+.demo-qual-desc {
+    font-size: 1.15em;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 1.2em;
+}
+
+.demo-qual-tasks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.demo-qual-tasks li {
+    font-size: 1.1em;
+    padding: 0.6em 0;
+    border-bottom: 1px solid #F0EDE9;
+    color: #555;
+}
+
+.demo-qual-tasks li .fa-check-circle {
+    color: #3E9D35;
+    margin-right: 0.5em;
+}
