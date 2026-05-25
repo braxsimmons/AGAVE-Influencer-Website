@@ -8,7 +8,7 @@ export function Partners() {
       <div className="mx-auto max-w-5xl text-center">
         <Reveal>
           <div className="flex justify-center">
-            <Kicker tone="dark">Strategic partner</Kicker>
+            <Kicker>Strategic partner</Kicker>
           </div>
           <h2 className="mt-6 font-display text-3xl font-bold leading-[1.05] text-white sm:text-5xl">
             Our leading influencer

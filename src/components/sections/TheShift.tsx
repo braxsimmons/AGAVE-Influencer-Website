@@ -39,7 +39,7 @@ export function TheShift() {
             <ul className="mt-7 space-y-4">
               {AGAVE_WAY.map((item) => (
                 <li key={item} className="flex items-start gap-4 text-[17px] font-medium text-ink">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-deep/12 text-deep">
+                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ember/15 text-ember">
                     <CheckIcon className="h-3 w-3" />
                   </span>
                   <span>{item}</span>
