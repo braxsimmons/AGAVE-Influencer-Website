@@ -28,7 +28,7 @@ export function DemoSection() {
           <ul className="mt-8 space-y-4">
             {POINTS.map((p) => (
               <li key={p} className="flex items-start gap-3.5 text-[15px] text-ink/75">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ember/15 text-ember">
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-deep/12 text-deep">
                   <CheckIcon className="h-3 w-3" />
                 </span>
                 {p}

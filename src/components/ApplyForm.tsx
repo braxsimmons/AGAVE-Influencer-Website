@@ -74,7 +74,7 @@ export function ApplyForm() {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className={`${CARD} text-center sm:p-14`}
       >
-        <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-ember/15 text-ember">
+        <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-deep/12 text-deep">
           <CheckIcon className="h-7 w-7" />
         </div>
         <h3 className="font-display text-3xl font-bold text-ink">

@@ -28,7 +28,7 @@ export function ApplySection() {
           <ul className="mt-8 space-y-3.5">
             {PERKS.map((perk) => (
               <li key={perk} className="flex items-start gap-3 text-ink/80">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ember/15 text-ember">
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-deep/12 text-deep">
                   <CheckIcon className="h-3 w-3" />
                 </span>
                 <span className="text-[15px]">{perk}</span>
