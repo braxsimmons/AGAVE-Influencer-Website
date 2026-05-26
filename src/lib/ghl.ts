@@ -237,7 +237,7 @@ export async function submitInfluencer(app: InfluencerApplication) {
     phone: app.phone.trim() || undefined,
     website: app.website?.trim() || undefined,
     source: "Agave Influencer Site",
-    tags: ["Influencer Application", "Agave Creator Site"],
+    tags: ["influencer-inquiry", "Influencer Application", "Agave Creator Site"],
     customFields,
   };
 
