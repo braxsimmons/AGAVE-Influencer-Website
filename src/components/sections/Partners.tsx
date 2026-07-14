@@ -8,7 +8,7 @@ export function Partners() {
     <section className="section-x bg-deep py-10 text-white sm:py-12">
       <div className="mx-auto max-w-5xl text-center">
         <Reveal>
-          {/* Freddy Media partner content — removed for now, kept for reference
+          {/* Freddy Media partner content, removed for now, kept for reference
           <div className="flex justify-center">
             <Kicker tone="dark">Strategic partner</Kicker>
           </div>

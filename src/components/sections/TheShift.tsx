@@ -1,5 +1,4 @@
 import { Reveal } from "@/components/ui/Reveal";
-import { Kicker } from "@/components/ui/Bits";
 import { CheckIcon } from "@/components/Icons";
 import { OLD_WAY, AGAVE_WAY } from "@/lib/site";
 
@@ -8,10 +7,7 @@ export function TheShift() {
     <section className="section-x bg-cream py-24 sm:py-32">
       <div className="mx-auto max-w-7xl">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <div className="flex justify-center">
-            <Kicker>The shift</Kicker>
-          </div>
-          <h2 className="mt-6 font-display text-4xl font-bold leading-[1.02] text-ink sm:text-6xl">
+          <h2 className="font-display text-4xl font-bold leading-[1.02] text-ink sm:text-6xl">
             Sponsored posts get scrolled.{" "}
             <span className="text-electric">Games get played.</span>
           </h2>

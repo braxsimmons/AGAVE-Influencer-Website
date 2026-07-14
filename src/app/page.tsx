@@ -1,6 +1,5 @@
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
-import { Partners } from "@/components/sections/Partners";
 import { TheShift } from "@/components/sections/TheShift";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { UseCases } from "@/components/sections/UseCases";
@@ -16,7 +15,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Partners />
         <TheShift />
         <HowItWorks />
         <UseCases />

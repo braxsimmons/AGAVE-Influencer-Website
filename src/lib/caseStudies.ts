@@ -42,7 +42,7 @@ export const caseStudies: CaseStudy[] = [
     image: "/influencers/braiden.jpeg",
     imagePosition: "center 58%",
     blurb:
-      "A personal finance creator who turned his audience into an owned database — and grew revenue per user 8x across six consecutive AGAVE campaigns.",
+      "A personal finance creator who turned his audience into an owned database and grew revenue per user 8x across six consecutive AGAVE campaigns.",
     highlight: "8x revenue per user over 6 campaigns",
     campaigns: [
       {
@@ -130,7 +130,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "Campaign 3",
         overview:
-          "This campaign focused on getting users to attend a virtual webinar — Braiden's opportunity to engage directly with his audience and sell his Amplifi Community. In 4 days, 881 people attended his webinar for an average of 29 minutes.",
+          "This campaign focused on getting users to attend a virtual webinar, Braiden's opportunity to engage directly with his audience and sell his Amplifi Community. In 4 days, 881 people attended his webinar for an average of 29 minutes.",
         metrics: [
           { label: "Users", value: "14,659" },
           { label: "Duration", value: "44 hrs" },
@@ -186,7 +186,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             prompt:
-              "Step 1: Watch the Video. Step 2: Create your HYSA (it's completely free). Step 3: Verify and receive $50 cash in your Venmo — usually 15 minutes or less. Enter your phone number below to opt in and we'll send you the links via SMS.",
+              "Step 1: Watch the Video. Step 2: Create your HYSA (it's completely free). Step 3: Verify and receive $50 cash in your Venmo, usually in 15 minutes or less. Enter your phone number below to opt in and we'll send you the links via SMS.",
             options: ["Phone number opt-in"],
             responsesLabel: "All Responses",
           },
@@ -215,7 +215,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             prompt:
-              "I found it. It's called Amplifi Travel — and I save a ton. We can access wholesale pricing for free because we're a “club”. Click the link below and create an account for free using the code “Braiden25” (it takes 30 seconds).",
+              "I found it. It's called Amplifi Travel, and I save a ton. We can access wholesale pricing for free because we're a “club”. Click the link below and create an account for free using the code “Braiden25” (it takes 30 seconds).",
             options: ["Text me the link, I'm interested", "Thanks!", "No thanks"],
             responsesLabel: "All Responses",
           },
@@ -224,7 +224,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "Campaign 6",
         overview:
-          "The most recent campaign introduced the Growth Circle funnel — Braiden's $6,000/year membership. We tightened our funnels to identify these users and adopted a very tight call center to offer them membership.",
+          "The most recent campaign introduced the Growth Circle funnel, Braiden's $6,000/year membership. We tightened our funnels to identify these users and adopted a very tight call center to offer them membership.",
         metrics: [
           { label: "Users", value: "10,496" },
           { label: "Duration", value: "57 hrs" },
@@ -254,7 +254,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     summary:
-      "Each campaign gives us the opportunity to improve funnel performance, lead quality, and overall campaign economics. Over the course of six campaigns, Braiden's revenue per user increased 8x — from $2.12 to $16.29 — through incremental funnel and offer improvements.",
+      "Each campaign gives us the opportunity to improve funnel performance, lead quality, and overall campaign economics. Over the course of six campaigns, Braiden's revenue per user increased 8x, from $2.12 to $16.29, through incremental funnel and offer improvements.",
     summaryStats: [
       { label: "Campaign 1", value: "$2.12" },
       { label: "Campaign 2", value: "$1.94" },
@@ -276,7 +276,7 @@ export const caseStudies: CaseStudy[] = [
     campaigns: [
       {
         overview:
-          "Body by Bree ran an AGAVE giveaway to promote her $695, 8-week course. During the giveaway, AGAVE set up over 80 consultations with Bree to sell the course — generating $32,665 in this one funnel.",
+          "Body by Bree ran an AGAVE giveaway to promote her $695, 8-week course. During the giveaway, AGAVE set up over 80 consultations with Bree to sell the course, generating $32,665 in this one funnel.",
         metrics: [
           { label: "Users", value: "5,400" },
           { label: "Duration", value: "42 hrs" },
@@ -323,7 +323,7 @@ export const caseStudies: CaseStudy[] = [
     image: "/influencers/mendedlight.jpeg",
     imagePosition: "center",
     blurb:
-      "Mended Light ran back-to-back AGAVE campaigns — and by tightening the funnel and adding a subscription layer, more than doubled profit per user.",
+      "Mended Light ran back-to-back AGAVE campaigns, and by tightening the funnel and adding a subscription layer, more than doubled profit per user.",
     highlight: "Profit per user $5.21 → $10.37",
     campaigns: [
       {
@@ -364,7 +364,7 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "Campaign 2",
         overview:
-          "The second campaign focused on minimizing costs to increase net profit — tightening market questions for fewer but more qualified leads, and introducing a new funnel. A new $1 trial to the Mended Light monthly subscription yielded 210 sign-ups with 70% churn; 147 transitioned to paid with an average LTV of $126.",
+          "The second campaign focused on minimizing costs to increase net profit by tightening market questions for fewer but more qualified leads, and introducing a new funnel. A new $1 trial to the Mended Light monthly subscription yielded 210 sign-ups with 70% churn; 147 transitioned to paid with an average LTV of $126.",
         metrics: [
           { label: "Users", value: "7,522" },
           { label: "Duration", value: "55 hrs" },
@@ -397,7 +397,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             prompt:
-              "Great! Get started with a 14-day trial membership to Mended Light for only $1 by clicking the link below — available only to our giveaway entrants. (Join today and receive special access to a new member game later this week where additional luxury resort stays will be given away!)",
+              "Great! Get started with a 14-day trial membership to Mended Light for only $1 by clicking the link below, available only to our giveaway entrants. (Join today and receive special access to a new member game later this week where additional luxury resort stays will be given away!)",
             options: ["Yes, please give me a call with more information", "No thanks, I'm not interested right now"],
             responsesLabel: "All Responses",
           },
@@ -405,7 +405,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     summary:
-      "In Campaign 2 we tightened the market-question funnel to prioritize higher-intent users. This reduced raw lead volume but doubled lead-to-sale conversion while requiring only a quarter of the consultation time — increasing profit to $59.5K. We also added a $1 free-trial subscription funnel, creating an additional $18.5K in profit from the same audience.",
+      "In Campaign 2 we tightened the market-question funnel to prioritize higher-intent users. This reduced raw lead volume but doubled lead-to-sale conversion while requiring only a quarter of the consultation time, increasing profit to $59.5K. We also added a $1 free-trial subscription funnel, creating an additional $18.5K in profit from the same audience.",
     summaryStats: [
       { label: "Campaign 1 Profit/User", value: "$5.21" },
       { label: "Campaign 2 Profit/User", value: "$10.37" },
@@ -418,7 +418,7 @@ export const caseStudies: CaseStudy[] = [
     type: "Food & Recipe Creator",
     image: "/influencers/kelseynixon.jpg",
     blurb:
-      "A food creator who used AGAVE to build her user database and promote her monthly Recipe Club subscription — growing her subscriber base 9% in 36 hours.",
+      "A food creator who used AGAVE to build her user database and promote her monthly Recipe Club subscription, growing her subscriber base 9% in 36 hours.",
     highlight: "9% subscriber growth in 36 hrs",
     campaigns: [
       {
@@ -454,7 +454,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             prompt:
-              "Coming up with what to make for dinner can be a headache, and many recipes are time-consuming. I created Recipe Club to help. Every month we send you 5 new, quick, easy recipes — plus weekly and monthly meal plans with one-click grocery lists sent to your favorite grocer. Would something like this interest you?",
+              "Coming up with what to make for dinner can be a headache, and many recipes are time-consuming. I created Recipe Club to help. Every month we send you 5 new, quick, easy recipes, plus weekly and monthly meal plans with one-click grocery lists sent to your favorite grocer. Would something like this interest you?",
             options: ["Yes, that would interest me", "No thanks, I'm not interested right now"],
             responsesLabel: "All Responses",
           },
@@ -517,7 +517,7 @@ export const caseStudies: CaseStudy[] = [
     type: "Quilting & Crafts Creator",
     image: "/influencers/lellaboutique.jpg",
     blurb:
-      "A quilting creator who partnered with Missouri Star Quilting Co. on an AGAVE campaign to launch a new template — driving 304 attributable sales.",
+      "A quilting creator who partnered with Missouri Star Quilting Co. on an AGAVE campaign to launch a new template, driving 304 attributable sales.",
     highlight: "304 sales · $10,640 revenue",
     campaigns: [
       {

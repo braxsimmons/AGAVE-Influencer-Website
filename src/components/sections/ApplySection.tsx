@@ -1,6 +1,5 @@
 import { ApplyForm } from "@/components/ApplyForm";
 import { Reveal } from "@/components/ui/Reveal";
-import { Kicker } from "@/components/ui/Bits";
 import { CheckIcon } from "@/components/Icons";
 
 const PERKS = [
@@ -15,8 +14,7 @@ export function ApplySection() {
     <section id="apply" className="section-x scroll-mt-24 bg-cream py-24 sm:py-32">
       <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
         <div className="lg:sticky lg:top-28">
-          <Kicker>Join the network</Kicker>
-          <h2 className="mt-6 font-display text-balance text-4xl font-bold leading-[1.02] text-ink sm:text-6xl">
+          <h2 className="font-display text-balance text-4xl font-bold leading-[1.02] text-ink sm:text-6xl">
             Bring the game to your audience.
           </h2>
           <p className="mt-5 max-w-md text-pretty text-lg text-ink/60">

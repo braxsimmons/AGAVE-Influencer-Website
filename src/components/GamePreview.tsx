@@ -7,7 +7,7 @@ import { motion } from "motion/react";
  * Desktop-only game preview. Renders (and therefore loads + auto-logs-in) the
  * embedded game eagerly as soon as the page mounts, so it's already on the
  * clicking screen by the time the visitor scrolls down. On mobile it renders
- * nothing — the demo section shows a button to the full demo instead, so we
+ * nothing; the demo section shows a button to the full demo instead, so we
  * never load the heavy game in the background on phones.
  */
 export function GamePreview() {

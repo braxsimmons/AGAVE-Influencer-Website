@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/Button";
-import { Kicker } from "@/components/ui/Bits";
 
 const up = {
   hidden: { opacity: 0, y: 22 },
@@ -62,16 +61,12 @@ export function Hero() {
       <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2 lg:gap-12">
         {/* copy */}
         <div>
-          <motion.div variants={up} custom={0} initial="hidden" animate="show">
-            <Kicker>For creators &amp; influencers</Kicker>
-          </motion.div>
-
           <motion.h1
             variants={up}
             custom={1}
             initial="hidden"
             animate="show"
-            className="mt-6 font-display text-5xl font-bold leading-[0.98] text-ink sm:text-6xl lg:text-7xl"
+            className="font-display text-5xl font-bold leading-[0.98] text-ink sm:text-6xl lg:text-7xl"
           >
             Your audience was never meant to{" "}
             <span className="text-ember">just watch.</span>

@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { Reveal } from "@/components/ui/Reveal";
-import { Kicker } from "@/components/ui/Bits";
 import { ArrowIcon, ChevronIcon } from "@/components/Icons";
 import { caseStudies, type CaseStudy } from "@/lib/caseStudies";
 import { CaseStudyModal } from "./CaseStudyModal";
@@ -59,10 +58,7 @@ export function CaseStudies() {
       <section id="case-studies" className="section-x scroll-mt-24 bg-cream py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <div className="flex justify-center">
-              <Kicker>Case studies</Kicker>
-            </div>
-            <h2 className="mt-6 font-display text-4xl font-bold leading-[1.02] text-ink sm:text-5xl">
+            <h2 className="font-display text-4xl font-bold leading-[1.02] text-ink sm:text-5xl">
               Real creators. Real revenue.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-[15px] text-ink/60 sm:text-base">
@@ -191,14 +187,11 @@ export function CaseStudies() {
       <section className="section-x bg-paper py-24 sm:py-32">
         <div className="mx-auto max-w-7xl">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <div className="flex justify-center">
-              <Kicker>Explore the campaigns</Kicker>
-            </div>
-            <h2 className="mt-6 font-display text-4xl font-bold leading-[1.02] text-ink sm:text-5xl">
-              Every niche. Same playbook.
+            <h2 className="font-display text-4xl font-bold leading-[1.02] text-ink sm:text-5xl">
+              Explore Some of Our Campaigns
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-[15px] text-ink/60 sm:text-base">
-              Tap any creator to see their full campaign breakdown — metrics,
+              Tap any creator to see their full campaign breakdown: metrics,
               results, and the exact funnel we ran.
             </p>
           </Reveal>

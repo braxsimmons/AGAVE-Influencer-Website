@@ -1,5 +1,4 @@
 import { Reveal } from "@/components/ui/Reveal";
-import { Kicker } from "@/components/ui/Bits";
 
 const STATS = [
   { figure: "12.4M", label: "Audience reached across live drops" },
@@ -12,10 +11,7 @@ export function StatsBand() {
     <section className="section-x bg-cream py-24 sm:py-28">
       <div className="mx-auto max-w-7xl">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <div className="flex justify-center">
-            <Kicker>By the numbers</Kicker>
-          </div>
-          <h2 className="mt-6 font-display text-4xl font-bold leading-[1.02] text-ink sm:text-5xl">
+          <h2 className="font-display text-4xl font-bold leading-[1.02] text-ink sm:text-5xl">
             Engagement you can actually measure.
           </h2>
         </Reveal>

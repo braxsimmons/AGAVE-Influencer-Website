@@ -87,7 +87,7 @@ export default function RootLayout({
           precedence="default"
         />
 
-        {/* Google tag (gtag.js) — only loaded when NEXT_PUBLIC_GA_ID is set */}
+        {/* Google tag (gtag.js), only loaded when NEXT_PUBLIC_GA_ID is set */}
         {GA_ID && (
           <>
             <Script

@@ -1,5 +1,4 @@
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
-import { Kicker } from "@/components/ui/Bits";
 import { STEPS } from "@/lib/site";
 
 export function HowItWorks() {
@@ -7,10 +6,7 @@ export function HowItWorks() {
     <section id="how" className="section-x scroll-mt-24 bg-paper py-24 sm:py-32">
       <div className="mx-auto max-w-7xl">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <div className="flex justify-center">
-            <Kicker>How it works</Kicker>
-          </div>
-          <h2 className="mt-6 font-display text-4xl font-bold leading-[1.02] text-ink sm:text-6xl">
+          <h2 className="font-display text-4xl font-bold leading-[1.02] text-ink sm:text-6xl">
             From follower to <span className="text-electric">payout.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-pretty text-lg text-ink/60">

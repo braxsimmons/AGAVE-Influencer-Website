@@ -23,7 +23,6 @@ export const PLATFORMS: Platform[] = [
 /** Use cases - how creators use Agave */
 export type UseCase = {
   key: "revenue" | "contacts" | "leads" | "philanthropy";
-  no: string;
   title: string;
   body: string;
 };
@@ -31,25 +30,21 @@ export type UseCase = {
 export const USE_CASES: UseCase[] = [
   {
     key: "revenue",
-    no: "01",
     title: "Revenue generation",
     body: "Monetize your audience through interactive giveaways that generate direct revenue from engaged participants.",
   },
   {
     key: "contacts",
-    no: "02",
     title: "Owned contact databases",
     body: "Collect email addresses, phone numbers, and demographic data independent of social media platforms.",
   },
   {
     key: "leads",
-    no: "03",
     title: "Sponsor-ready lead packages",
     body: "Deliver actionable data to brand partners including verified contact information and audience preferences.",
   },
   {
     key: "philanthropy",
-    no: "04",
     title: "Crowdsourced philanthropy",
     body: "Build goodwill through integrated charitable components that engage audiences while supporting causes.",
   },

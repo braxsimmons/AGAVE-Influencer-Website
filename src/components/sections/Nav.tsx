@@ -35,7 +35,7 @@ export function Nav() {
         }`}
       >
         <div className="section-x mx-auto flex max-w-7xl items-center justify-between py-4">
-          <Link href="#top" className="flex items-center" aria-label="AGAVE home">
+          <Link href="https://clients.goagave.io/" className="flex items-center" aria-label="AGAVE home">
             <Logo className="h-5 w-auto text-ink" />
           </Link>
 

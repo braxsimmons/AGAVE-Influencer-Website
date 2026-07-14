@@ -1,4 +1,3 @@
-import { Kicker } from "@/components/ui/Bits";
 import { Button } from "@/components/ui/Button";
 import { CheckIcon } from "@/components/Icons";
 import { GamePreview } from "@/components/GamePreview";
@@ -15,8 +14,7 @@ export function DemoSection() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         {/* copy */}
         <div>
-          <Kicker>The game</Kicker>
-          <h2 className="mt-6 font-display text-4xl font-bold leading-[1.02] text-ink sm:text-6xl">
+          <h2 className="font-display text-4xl font-bold leading-[1.02] text-ink sm:text-6xl">
             Don&apos;t take our word.{" "}
             <span className="text-ember">Play it.</span>
           </h2>
