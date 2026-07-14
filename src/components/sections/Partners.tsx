@@ -1,12 +1,14 @@
-import Image from "next/image";
+// import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
-import { Kicker } from "@/components/ui/Bits";
+// import { Kicker } from "@/components/ui/Bits";
+import { Button } from "@/components/ui/Button";
 
 export function Partners() {
   return (
-    <section className="section-x bg-deep py-20 text-white sm:py-24">
+    <section className="section-x bg-deep py-10 text-white sm:py-12">
       <div className="mx-auto max-w-5xl text-center">
         <Reveal>
+          {/* Freddy Media partner content — removed for now, kept for reference
           <div className="flex justify-center">
             <Kicker tone="dark">Strategic partner</Kicker>
           </div>
@@ -35,6 +37,11 @@ export function Partners() {
             every partnership you join is backed by a team that knows the industry
             inside out.
           </p>
+          */}
+
+          <Button href="#case-studies" variant="secondary-dark" size="lg" withArrow>
+            Case Studies
+          </Button>
         </Reveal>
       </div>
     </section>

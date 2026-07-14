@@ -1,4 +1,5 @@
 export const NAV_LINKS = [
+  { label: "Home", href: "https://clients.goagave.io/" },
   { label: "How it works", href: "#how" },
   { label: "The game", href: "#demo" },
   { label: "Apply", href: "#apply" },
