@@ -99,6 +99,41 @@ export function TrophyIcon(props: IconProps) {
   );
 }
 
+export function CoinIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 6.5v11M15 9c-.65-.85-1.75-1.35-3-1.35-1.8 0-3 .95-3 2.25 0 2.9 6 1.5 6 4.4 0 1.3-1.2 2.25-3 2.25-1.25 0-2.35-.5-3-1.35" />
+    </svg>
+  );
+}
+
+export function MailIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden {...props}>
+      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+      <path d="m3.5 7.5 8.5 6 8.5-6" />
+    </svg>
+  );
+}
+
+export function PackageIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden {...props}>
+      <path d="M21 8.2 12 3 3 8.2v7.6L12 21l9-5.2V8.2Z" />
+      <path d="m3.3 8.4 8.7 5 8.7-5M12 13.4V21M7.5 5.6l8.8 5.1" />
+    </svg>
+  );
+}
+
+export function HeartIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden {...props}>
+      <path d="M12 20.3S4.7 15.6 2.9 11.2C1.7 8.3 3.6 5 6.8 5c2 0 3.4 1.1 4.6 2.8l.6.9.6-.9C13.8 6.1 15.2 5 17.2 5c3.2 0 5.1 3.3 3.9 6.2-1.8 4.4-9.1 9.1-9.1 9.1Z" />
+    </svg>
+  );
+}
+
 export function ChevronIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden {...props}>
