@@ -8,7 +8,7 @@ import { ArrowIcon, ChevronIcon } from "@/components/Icons";
 import { caseStudies, type CaseStudy } from "@/lib/caseStudies";
 import { CaseStudyModal } from "./CaseStudyModal";
 
-const ROTATE_MS = 5000;
+const ROTATE_MS = 4250;
 
 function ExpandIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
