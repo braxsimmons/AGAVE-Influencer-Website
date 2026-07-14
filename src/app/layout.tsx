@@ -62,8 +62,8 @@ export const metadata: Metadata = {
       "Partner with AGAVE to run branded prize games your audience actually plays. Apply to partner.",
   },
   icons: {
-    icon: "/brand/favicon.png",
-    apple: "/brand/favicon.png",
+    icon: "/favicon15.png",
+    apple: "/favicon15.png",
   },
 };
 
