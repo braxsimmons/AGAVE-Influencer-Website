@@ -20,7 +20,7 @@ export function Nav() {
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="border-b border-[#DAD1C7] bg-white px-4 lg:px-20">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between">
-          <Link href="https://clients.goagave.io/" className="flex items-center" aria-label="AGAVE home">
+          <Link href="https://goagave.io/" className="flex items-center" aria-label="AGAVE home">
             <Logo className="h-5 w-auto text-ink" />
           </Link>
 
