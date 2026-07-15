@@ -40,22 +40,26 @@ export function Nav() {
           </Link>
 
           <div className="flex items-center gap-6 md:gap-7">
-            <nav className="hidden items-center gap-6 md:flex">
-              {NAV_LINKS.slice(0, 4).map((l) => (
+            <nav className="hidden items-center gap-8 md:flex">
+              {NAV_LINKS.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="text-sm font-medium text-ink/70 transition-colors hover:text-ink"
+                  className="group relative text-xs font-bold uppercase tracking-widest text-[#193759] transition-colors hover:text-[#A79D95]"
                 >
                   {l.label}
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#A79D95] transition-all group-hover:w-full" />
                 </Link>
               ))}
             </nav>
 
             <div className="hidden md:block">
-              <Button href="#apply" size="sm">
-                Join the network
-              </Button>
+              <Link
+                href="#apply"
+                className="rounded-full bg-[#e9714c] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-[#d05a36] hover:shadow-lg active:scale-95"
+              >
+                Join the Network
+              </Link>
             </div>
 
             <button

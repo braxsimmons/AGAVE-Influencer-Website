@@ -1,9 +1,8 @@
 export const NAV_LINKS = [
   { label: "Home", href: "https://clients.goagave.io/" },
-  { label: "How it works", href: "#how" },
-  { label: "The game", href: "#demo" },
-  { label: "Case studies", href: "#case-studies" },
-  { label: "Apply", href: "#apply" },
+  { label: "How It Works", href: "#how" },
+  { label: "The Game", href: "#demo" },
+  { label: "Case Studies", href: "#case-studies" },
 ];
 
 export type Platform = {
