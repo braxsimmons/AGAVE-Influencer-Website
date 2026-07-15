@@ -4,19 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { Logo } from "@/components/Logo";
-import { Button } from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/site";
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -27,19 +18,13 @@ export function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div
-        className={`transition-colors duration-300 ${
-          scrolled
-            ? "border-b border-ink/10 bg-paper/85 backdrop-blur-xl"
-            : "border-b border-transparent"
-        }`}
-      >
-        <div className="section-x mx-auto flex max-w-7xl items-center justify-between py-4">
+      <div className="border-b border-[#DAD1C7] bg-white">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 lg:px-20">
           <Link href="https://clients.goagave.io/" className="flex items-center" aria-label="AGAVE home">
             <Logo className="h-5 w-auto text-ink" />
           </Link>
 
-          <div className="flex items-center gap-6 md:gap-7">
+          <div className="flex items-center gap-8">
             <nav className="hidden items-center gap-8 md:flex">
               {NAV_LINKS.map((l) => (
                 <Link
@@ -111,9 +96,13 @@ export function Nav() {
                 </motion.div>
               ))}
               <div className="mt-6">
-                <Button href="#apply" size="lg" className="w-full">
-                  Join the network
-                </Button>
+                <Link
+                  href="#apply"
+                  onClick={() => setOpen(false)}
+                  className="block w-full rounded-full bg-[#e9714c] px-6 py-4 text-center text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-[#d05a36] active:scale-95"
+                >
+                  Join the Network
+                </Link>
               </div>
             </div>
           </motion.div>
